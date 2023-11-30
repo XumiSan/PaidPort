@@ -11,8 +11,9 @@ public class MainMenuManager : MonoBehaviour
     private GameObject CreditScreen;
    public void PlayGame()
     {
-
+       
         SceneManager.LoadScene("Gameplay");
+        Time.timeScale = 1;
     }
 
     public void Setting()
