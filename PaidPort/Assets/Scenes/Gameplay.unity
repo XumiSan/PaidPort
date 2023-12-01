@@ -9789,11 +9789,13 @@ MonoBehaviour:
   spawnPosition: {x: -15.445, y: -2.3}
   groundWidth: 32
   groundHeight: 2
-  bronzeChance: 0.03
-  silverChance: 0.03
-  goldChance: 0.02
-  diamondChance: 0.02
   maxDepth: 500
+  groundContainer: {fileID: 1922217023}
+  isLoad: 1
+  state:
+    data: 
+  state1:
+    data: 
 --- !u!1 &1124951472
 GameObject:
   m_ObjectHideFlags: 0
@@ -16756,6 +16758,8 @@ MonoBehaviour:
   MoneyText: {fileID: 944604161}
   GameOverScreen: {fileID: 1840280400}
   GameScreen: {fileID: 182091074}
+  groundListType: 
+  groundListTypeIndex: 
 --- !u!4 &1942042536
 Transform:
   m_ObjectHideFlags: 0

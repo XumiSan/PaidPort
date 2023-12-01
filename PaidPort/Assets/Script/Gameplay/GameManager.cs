@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
 
     private bool isInventoryActive = false;
 
+    public List<int> groundListType;
+    public List<int> groundListTypeIndex;
+
     private void Awake()
     {
         if (Instance == null)
