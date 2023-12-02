@@ -27,6 +27,10 @@ public class DayNightCycle : MonoBehaviour
     private GameObject Night;
     [SerializeField]
     private GameObject NighLight;
+    [SerializeField]
+    private GameObject FuelDay;
+    [SerializeField]
+    private GameObject FuelNight;
 
     void Start()
     {
@@ -110,6 +114,9 @@ public class DayNightCycle : MonoBehaviour
             Night.SetActive(false);
             NighLight.SetActive(false);
             Day.SetActive(true);
+            
+            FuelNight.SetActive(false);
+            FuelDay.SetActive(true);
         }
         timeText.text = currentHour.ToString("00") + ":" + currentMinute.ToString("00");
         if (currentHour == 18 && currentMinute == 00)
@@ -117,6 +124,9 @@ public class DayNightCycle : MonoBehaviour
             Day.SetActive(false);
             NighLight.SetActive(true);
             Night.SetActive(true);
+            
+            FuelDay.SetActive(false);
+            FuelNight.SetActive(true);
         }
     }
 
