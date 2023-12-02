@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private Text FeedbackTextSell;
 
     public Canvas inventoryCanvas;
+    public Text maxInventory;
     public Text bronzeCountText;
     public Text silverCountText;
     public Text goldCountText;
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        maxInventory.text = "Max: " + maxLimit.ToString();
         if (Input.GetKeyDown(KeyCode.I))
         {
             ToggleInventoryCanvas();
