@@ -54,6 +54,11 @@ public class GarageBuilding : MonoBehaviour
 
 
     private bool inArea;
+
+    public void Start()
+    {
+        UpgradeFuel();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -138,11 +143,15 @@ public class GarageBuilding : MonoBehaviour
                 if (damageButton != null)
                 {
                     damageButton.GetComponentInChildren<Text>().text = "Upgrade To level 3";
+                    PlayerPrefs.SetString("DamageButtonUpgradeText", "Upgrade To level 3");
                 }
                 if (upgradeCostTextDamage != null)
                 {
                     upgradeCostTextDamage.text = "Upgrade Cost: 2000Gc";
+                    PlayerPrefs.SetString("UpgradeCostText", "Upgrade Cost: 2000Gc");
                 }
+                PlayerPrefs.SetFloat("DamagePerHit", playerMovement.damagePerHit);
+                PlayerPrefs.Save();
             }
             else
             {
@@ -159,11 +168,15 @@ public class GarageBuilding : MonoBehaviour
                 if (damageButton != null)
                 {
                     damageButton.GetComponentInChildren<Text>().text = "Upgrade To level 4";
+                    PlayerPrefs.SetString("DamageButtonUpgradeText", "Upgrade To level 4");
                 }
                 if (upgradeCostTextDamage != null)
                 {
                     upgradeCostTextDamage.text = "Upgrade Cost: 5000Gc";
+                    PlayerPrefs.SetString("UpgradeCostText", "Upgrade Cost: 5000Gc");
                 }
+                PlayerPrefs.SetFloat("DamagePerHit", playerMovement.damagePerHit);
+                PlayerPrefs.Save();
             }
             else
             {
@@ -180,11 +193,15 @@ public class GarageBuilding : MonoBehaviour
                 if (damageButton != null)
                 {
                     damageButton.GetComponentInChildren<Text>().text = "Max";
+                    PlayerPrefs.SetString("DamageButtonUpgradeText", "Max");
                 }
                 if (upgradeCostTextDamage != null)
                 {
                     upgradeCostTextDamage.text = "Max";
+                    PlayerPrefs.SetString("UpgradeCostText", "Max");
                 }
+                PlayerPrefs.SetFloat("DamagePerHit", playerMovement.damagePerHit);
+                PlayerPrefs.Save();
             }
             else
             {
@@ -200,7 +217,7 @@ public class GarageBuilding : MonoBehaviour
             if (GameManager.Instance.GetPlayerMoney() >= 750)
             {
                 healthBar.maxHealth = 20;
-                healthBar.currentHealth = 20;
+                healthBar.ResetHealth();
                 healthBar.UpdateHealthBar();
                 GameManager.Instance.SubtractMoney(750);
                 Debug.Log("Berhasil Upgrade");
@@ -208,11 +225,16 @@ public class GarageBuilding : MonoBehaviour
                 if (healthButton != null)
                 {
                     healthButton.GetComponentInChildren<Text>().text = "Upgrade To level 3";
+                    PlayerPrefs.SetString("HealthButtonUpgradeText", "Upgrade To level 3");
                 }
                 if (upgradeCostTextHealth != null)
                 {
                     upgradeCostTextHealth.text = "Upgrade Cost: 2000Gc";
+                    PlayerPrefs.SetString("UpgradeCostTextHealth", "Upgrade Cost: 2000Gc");
                 }
+
+                PlayerPrefs.SetFloat("MaxHealth", healthBar.maxHealth);
+                PlayerPrefs.Save();
             }
             else
             {
@@ -224,18 +246,22 @@ public class GarageBuilding : MonoBehaviour
             if (GameManager.Instance.GetPlayerMoney() >= 2000)
             {
                 healthBar.maxHealth = 30;
-                healthBar.currentHealth = 30;
+                healthBar.ResetHealth();
                 healthBar.UpdateHealthBar();
                 GameManager.Instance.SubtractMoney(2000);
 
                 if (healthButton != null)
                 {
                     healthButton.GetComponentInChildren<Text>().text = "Upgrade To level 4";
+                    PlayerPrefs.SetString("HealthButtonUpgradeText", "Upgrade To level 4");
                 }
                 if (upgradeCostTextHealth != null)
                 {
                     upgradeCostTextHealth.text = "Upgrade Cost: 5000Gc";
+                    PlayerPrefs.SetString("UpgradeCostTextHealth", "Upgrade Cost: 5000Gc");
                 }
+                PlayerPrefs.SetFloat("MaxHealth", healthBar.maxHealth);
+                PlayerPrefs.Save();
             }
             else
             {
@@ -247,18 +273,22 @@ public class GarageBuilding : MonoBehaviour
             if (GameManager.Instance.GetPlayerMoney() >= 5000)
             {
                 healthBar.maxHealth = 40;
-                healthBar.currentHealth = 40;
+                healthBar.ResetHealth();
                 healthBar.UpdateHealthBar();
                 GameManager.Instance.SubtractMoney(5000);
 
                 if (healthButton != null)
                 {
                     healthButton.GetComponentInChildren<Text>().text = "Max";
+                    PlayerPrefs.SetString("HealthButtonUpgradeText", "Max");
                 }
                 if (upgradeCostTextHealth != null)
                 {
                     upgradeCostTextHealth.text = "Max";
+                    PlayerPrefs.SetString("UpgradeCostTextHealth", "Max");
                 }
+                PlayerPrefs.SetFloat("MaxHealth", healthBar.maxHealth);
+                PlayerPrefs.Save();
             }
             else
             {
@@ -278,11 +308,15 @@ public class GarageBuilding : MonoBehaviour
                 if (inventoryButton != null)
                 {
                     inventoryButton.GetComponentInChildren<Text>().text = "Upgrade To level 3";
+                    PlayerPrefs.SetString("InventoryButtonUpgradeText", "Upgrade To level 3");
                 }
                 if (upgradeCostTextInventory != null)
                 {
                     upgradeCostTextInventory.text = "Upgrade Cost: 2000Gc";
+                    PlayerPrefs.SetString("UpgradeCostTextInventory", "Upgrade Cost: 2000Gc");
                 }
+                PlayerPrefs.SetInt("MaxLimit", gameManager.maxLimit);
+                PlayerPrefs.Save();
             }
             else
             {
@@ -299,11 +333,15 @@ public class GarageBuilding : MonoBehaviour
                 if (inventoryButton != null)
                 {
                     inventoryButton.GetComponentInChildren<Text>().text = "Upgrade To level 4";
+                    PlayerPrefs.SetString("InventoryButtonUpgradeText", "Upgrade To level 4");
                 }
                 if (upgradeCostTextInventory != null)
                 {
                     upgradeCostTextInventory.text = "Upgrade Cost: 5000Gc";
+                    PlayerPrefs.SetString("UpgradeCostTextInventory", "Upgrade Cost: 5000Gc");
                 }
+                PlayerPrefs.SetInt("MaxLimit", gameManager.maxLimit);
+                PlayerPrefs.Save();
             }
             else
             {
@@ -320,11 +358,15 @@ public class GarageBuilding : MonoBehaviour
                 if (inventoryButton != null)
                 {
                     inventoryButton.GetComponentInChildren<Text>().text = "Max";
+                    PlayerPrefs.SetString("InventoryButtonUpgradeText", "Max");
                 }
                 if (upgradeCostTextInventory != null)
                 {
                     upgradeCostTextInventory.text = "Max";
+                    PlayerPrefs.SetString("UpgradeCostTextInventory", "Max");
                 }
+                PlayerPrefs.SetInt("MaxLimit", gameManager.maxLimit);
+                PlayerPrefs.Save();
             }
             else
             {
@@ -339,18 +381,22 @@ public class GarageBuilding : MonoBehaviour
             if (GameManager.Instance.GetPlayerMoney() >= 750)
             {
                 fuelBar.totalFuel = 150;
-                fuelBar.currentFuel = 150;
+                fuelBar.ResetFuel();
                 fuelBar.UpdateFuelBar();
                 GameManager.Instance.SubtractMoney(750);
 
                 if (fuelButton != null)
                 {
                     fuelButton.GetComponentInChildren<Text>().text = "Upgrade To level 3";
+                    PlayerPrefs.SetString("FuelButtonUpgradeText", "Upgrade To level 3");
                 }
                 if (upgradeCostTextFuel != null)
                 {
                     upgradeCostTextFuel.text = "Upgrade Cost: 2000Gc";
+                    PlayerPrefs.SetString("UpgradeCostTextFuel", "Upgrade Cost: 2000Gc");
                 }
+                PlayerPrefs.SetInt("TotalFuel", fuelBar.totalFuel);
+                PlayerPrefs.Save();
             }
             else
             {
@@ -362,18 +408,22 @@ public class GarageBuilding : MonoBehaviour
             if (GameManager.Instance.GetPlayerMoney() >= 2000)
             {
                 fuelBar.totalFuel = 200;
-                fuelBar.currentFuel = 200;
+                fuelBar.ResetFuel();
                 fuelBar.UpdateFuelBar();
                 GameManager.Instance.SubtractMoney(2000);
 
                 if (fuelButton != null)
                 {
                     fuelButton.GetComponentInChildren<Text>().text = "Upgrade To level 4";
+                    PlayerPrefs.SetString("FuelButtonUpgradeText", "Upgrade To level 4");
                 }
                 if (upgradeCostTextFuel != null)
                 {
                     upgradeCostTextFuel.text = "Upgrade Cost: 5000Gc";
+                    PlayerPrefs.SetString("UpgradeCostTextFuel", "Upgrade Cost: 5000Gc");
                 }
+                PlayerPrefs.SetInt("TotalFuel", fuelBar.totalFuel);
+                PlayerPrefs.Save();
             }
             else
             {
@@ -385,24 +435,85 @@ public class GarageBuilding : MonoBehaviour
             if (GameManager.Instance.GetPlayerMoney() >= 5000)
             {
                 fuelBar.totalFuel = 300;
-                fuelBar.currentFuel = 300;
+                fuelBar.ResetFuel();
                 fuelBar.UpdateFuelBar();
                 GameManager.Instance.SubtractMoney(5000);
 
                 if (fuelButton != null)
                 {
                     fuelButton.GetComponentInChildren<Text>().text = "Max";
+                    PlayerPrefs.SetString("FuelButtonUpgradeText", "Max");
                 }
                 if (upgradeCostTextFuel != null)
                 {
                     upgradeCostTextFuel.text = "Max";
+                    PlayerPrefs.SetString("UpgradeCostTextFuel", "Max");
                 }
+                PlayerPrefs.SetInt("TotalFuel", fuelBar.totalFuel);
+                PlayerPrefs.Save();
             }
             else
             {
                 Debug.Log("Uang tidak cukup untuk upgrade Drill ke level 4");
             }
         }
+    }
+
+    void UpgradeDamage()
+    {
+        if (damageButton != null)
+        {
+            damageButton.GetComponentInChildren<Text>().text = PlayerPrefs.GetString("DamageButtonUpgradeText", "Upgrade To level 2");
+        }
+        if (upgradeCostTextDamage != null)
+        {
+            upgradeCostTextDamage.text = PlayerPrefs.GetString("UpgradeCostText", "Upgrade Cost: 750Gc");
+        }
+
+       
+        playerMovement.damagePerHit = PlayerPrefs.GetFloat("DamagePerHit", 10f);
+    }
+
+    void UpgradeHealth()
+    {
+        UpgradeDamage();
+        if (healthButton != null)
+        {
+            healthButton.GetComponentInChildren<Text>().text = PlayerPrefs.GetString("HealthButtonUpgradeText", "Upgrade To level 2");
+        }
+        if (upgradeCostTextHealth != null)
+        {
+            upgradeCostTextHealth.text = PlayerPrefs.GetString("UpgradeCostHealthText", "Upgrade Cost: 750Gc");
+        }
+        healthBar.maxHealth = PlayerPrefs.GetFloat("MaxHealth", 10);
+        healthBar.UpdateHealthBar();
+    }
+    void UpgradeInventory()
+    {
+        UpgradeHealth();
+        if (inventoryButton != null)
+        {
+            inventoryButton.GetComponentInChildren<Text>().text = PlayerPrefs.GetString("InventoryButtonUpgradeText", "Upgrade To level 2");
+        }
+        if (upgradeCostTextInventory != null)
+        {
+            upgradeCostTextInventory.text = PlayerPrefs.GetString("UpgradeCostTextInventory", "Upgrade Cost: 750Gc");
+        }
+        gameManager.maxLimit = PlayerPrefs.GetInt("MaxLimit", 10);
+    }
+    void UpgradeFuel()
+    {
+        UpgradeInventory();
+        if (fuelButton != null)
+        {
+            fuelButton.GetComponentInChildren<Text>().text = PlayerPrefs.GetString("FuelButtonUpgradeText", "Upgrade To level 2");
+        }
+        if (upgradeCostTextFuel != null)
+        {
+            upgradeCostTextFuel.text = PlayerPrefs.GetString("UpgradeCostTextFuel", "Upgrade Cost: 750Gc");
+        }
+        fuelBar.totalFuel = PlayerPrefs.GetInt("TotalFuel", 100);
+        fuelBar.UpdateFuelBar();
     }
     private IEnumerator DisplayLegacyTextService(string displayText)
     {
@@ -414,9 +525,3 @@ public class GarageBuilding : MonoBehaviour
         FeedbackTextService.enabled = false;
     }
 }
-
-
-    
-
-
-

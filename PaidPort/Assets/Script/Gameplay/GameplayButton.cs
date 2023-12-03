@@ -35,4 +35,8 @@ public class GameplayButton : MonoBehaviour
         ClearPlayerPrefs();
         SceneManager.LoadScene("MainMenu");
     }
+    public void ExitToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
