@@ -54,7 +54,7 @@ public class HealthBar : MonoBehaviour
     public void SaveHealth()
     {
         PlayerPrefs.SetFloat(healthSaveKey, currentHealth);
-        PlayerPrefs.Save(); // Simpan ke PlayerPrefs
+        PlayerPrefs.Save(); 
     }
 
     public void UpdateHealthBar()
