@@ -19,13 +19,20 @@ public class GameplayButton : MonoBehaviour
         PauseScreen.SetActive(false);
         GameScreen.SetActive(true);
     }
+    private void ClearPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    }
     public void Retry()
     {
+        ClearPlayerPrefs();
         SceneManager.LoadScene("Gameplay");
         Time.timeScale = 1f;
     }
     public void RetrunToMainMenu()
     {
+        ClearPlayerPrefs();
         SceneManager.LoadScene("MainMenu");
     }
 }

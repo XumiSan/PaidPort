@@ -70,7 +70,7 @@ public class FuelStation : MonoBehaviour
         {
             
             GameManager.Instance.SubtractMoney(itemCost);
-            fuelBar.ResetHealth();
+            fuelBar.ResetFuel();
             StartCoroutine(DisplayLegacyText("Fuel bertambah"));
             Debug.Log("Fuel bertambah");
            

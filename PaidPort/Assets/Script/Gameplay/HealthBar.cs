@@ -11,21 +11,24 @@ public class HealthBar : MonoBehaviour
 
     public Image healthBar;
 
+    private string healthSaveKey = "PlayerHealth";
+
     void Start()
     {
-        currentHealth = maxHealth;
+        LoadHealth();
         UpdateHealthBar();
     }
 
     void Update()
     {
-        
+
     }
 
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        SaveHealth();
         UpdateHealthBar();
 
         if (currentHealth <= 0)
@@ -38,14 +41,20 @@ public class HealthBar : MonoBehaviour
     {
         GameManager.Instance.GameOver();
         Debug.Log("Player mati");
-       
+
     }
     public void ResetHealth()
     {
         currentHealth = maxHealth;
+        SaveHealth();
         UpdateHealthBar();
         Debug.Log("Health direset ke nilai awal: " + currentHealth);
-       
+
+    }
+    public void SaveHealth()
+    {
+        PlayerPrefs.SetFloat(healthSaveKey, currentHealth);
+        PlayerPrefs.Save(); // Simpan ke PlayerPrefs
     }
 
     public void UpdateHealthBar()
@@ -53,8 +62,18 @@ public class HealthBar : MonoBehaviour
         float healthPercentage = (float)currentHealth / maxHealth;
         healthBar.fillAmount = healthPercentage;
     }
-  
-}
+    public void LoadHealth()
+    {
+        if (PlayerPrefs.HasKey(healthSaveKey))
+        {
+            currentHealth = PlayerPrefs.GetFloat(healthSaveKey);
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
 
+    }
+}
 
 

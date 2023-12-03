@@ -14,9 +14,11 @@ public class FuelBar : MonoBehaviour
 
     public Image fuelBarImage;
 
+    private string fuelSaveKey = "PlayerFuel";
+
     void Start()
     {
-        currentFuel = totalFuel;
+        LoadFuel();
         UpdateFuelBar();
     }
 
@@ -33,6 +35,7 @@ public class FuelBar : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentFuel -= damage;
+        SaveFuel();
         UpdateFuelBar();
 
        
@@ -54,12 +57,30 @@ public class FuelBar : MonoBehaviour
         float fillAmount = (float)currentFuel / totalFuel;
         fuelBarImage.fillAmount = fillAmount;
     }
-    public void ResetHealth()
+    public void SaveFuel()
+    {
+        PlayerPrefs.SetInt(fuelSaveKey, currentFuel);
+        PlayerPrefs.Save();
+    }
+    public void ResetFuel()
     {
         currentFuel = totalFuel;
+        SaveFuel();
         UpdateFuelBar();
         Debug.Log("Health direset ke nilai awal: " + currentFuel);
         
+    }
+    public void LoadFuel()
+    {
+        if (PlayerPrefs.HasKey(fuelSaveKey))
+        {
+            currentFuel = PlayerPrefs.GetInt(fuelSaveKey);
+        }
+        else
+        {
+            currentFuel = totalFuel;
+        }
+
     }
 
 }
