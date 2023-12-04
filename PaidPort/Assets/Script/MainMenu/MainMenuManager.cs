@@ -7,9 +7,12 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject SettingScreeen;
-    [SerializeField]
-    private GameObject CreditScreen;
-   public void PlayGame()
+
+    public GameObject CreditScreen1;
+    public GameObject CreditScreen2;
+
+    private bool isCreditScreen1Active = true;
+    public void PlayGame()
     {
         ClearPlayerPrefs();
         SceneManager.LoadScene("Gameplay");
@@ -33,19 +36,29 @@ public class MainMenuManager : MonoBehaviour
     }
     public void Credit()
     {
-        CreditScreen.SetActive(true);
+        CreditScreen1.SetActive(true);
 
-        if (CreditScreen.activeSelf)
+        if (isCreditScreen1Active)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (CreditScreen1.activeSelf && Input.GetKeyDown(KeyCode.Space))
             {
-                CreditScreen.SetActive(false);
+                CreditScreen1.SetActive(false);
+                CreditScreen2.SetActive(true);
+                isCreditScreen1Active = false;
             }
         }
         else
         {
-            CreditScreen.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                CreditScreen1.SetActive(false);
+                CreditScreen2.SetActive(false);
+
+                isCreditScreen1Active = true;
+                
+            }
         }
+       
     }
 
     public void ExitGame()
