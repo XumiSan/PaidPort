@@ -12,6 +12,13 @@ public class DayNightCycle : MonoBehaviour
     private TextMeshProUGUI debtText;
     [SerializeField]
     private TextMeshProUGUI timeText;
+    [SerializeField]
+    private BackgroundColor bgColorChanger;
+    [SerializeField]
+    private Color brownColor = new Color(0.6f, 0.3f, 0.1f, 1f);
+    [SerializeField]
+    private Color darkColor = new Color(0.6f, 0.3f, 0.1f, 1f);
+
     private int currentHour = 0;
     private int currentMinute = 0;
     private int currentDay = 1;
@@ -21,14 +28,27 @@ public class DayNightCycle : MonoBehaviour
     private float timeSinceLastUpdate = 0f;
     [SerializeField]
     private Text FeedbackTextDay;
+
+    //ChangeDayControl
     [SerializeField]
-    private GameObject Day;
+    private SpriteRenderer groundBg;
     [SerializeField]
-    private GameObject Night;
+    private SpriteRenderer skyBg;
+    [SerializeField]
+    private Sprite dayGround;
+    [SerializeField]
+    private Sprite daySky;
+    [SerializeField]
+    private Sprite nightGround;
+    [SerializeField]
+    private Sprite nightSky;
+
+
     [SerializeField]
     private GameObject NighLight;
-    [SerializeField]
 
+    //Fuel Building
+    [SerializeField]
     private SpriteRenderer buildingFuelSpriteRenderer;
    [SerializeField]
     private Sprite daySprite;
@@ -116,9 +136,11 @@ public class DayNightCycle : MonoBehaviour
         timeText.text = currentHour.ToString("00") + ":" + currentMinute.ToString("00");
         if (currentHour == 7 && currentMinute == 00)
         {
-            Night.SetActive(false);
+            groundBg.sprite = dayGround;
+            skyBg.sprite = daySky;
             NighLight.SetActive(false);
-            Day.SetActive(true);
+      
+            bgColorChanger.ChangeBackgroundColor(brownColor);
 
             buildingFuelSpriteRenderer.sprite = daySprite;
             glow.SetActive(false);
@@ -127,9 +149,11 @@ public class DayNightCycle : MonoBehaviour
         timeText.text = currentHour.ToString("00") + ":" + currentMinute.ToString("00");
         if (currentHour == 18 && currentMinute == 00)
         {
-            Day.SetActive(false);
+            groundBg.sprite = nightGround;
+            skyBg.sprite = nightSky;
             NighLight.SetActive(true);
-            Night.SetActive(true);
+         
+            bgColorChanger.ChangeBackgroundColor(darkColor);
 
             buildingFuelSpriteRenderer.sprite = nightSprite;
             glow.SetActive(true);
