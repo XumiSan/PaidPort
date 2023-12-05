@@ -6,7 +6,7 @@ public class Parallax : MonoBehaviour
 
 {
     public Transform player; 
-    private float offsetYThreshold = 3f; 
+    private float offsetYThreshold = 5f; 
     public float parallaxSpeed = 0.5f;
 
     private float initialY;

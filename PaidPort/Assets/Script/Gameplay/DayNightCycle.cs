@@ -26,6 +26,7 @@ public class DayNightCycle : MonoBehaviour
     private string[] dailyDebts;
     private float updateInterval = -5f;
     private float timeSinceLastUpdate = 0f;
+
     [SerializeField]
     private Text FeedbackTextDay;
 
