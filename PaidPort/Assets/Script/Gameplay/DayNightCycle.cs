@@ -24,7 +24,7 @@ public class DayNightCycle : MonoBehaviour
     private int currentDay = 1;
     private string[] dayNames;
     private string[] dailyDebts;
-    private float updateInterval = -5f;
+    private float updateInterval = 0.5f;
     private float timeSinceLastUpdate = 0f;
 
     [SerializeField]
@@ -51,7 +51,7 @@ public class DayNightCycle : MonoBehaviour
     //Fuel Building
     [SerializeField]
     private SpriteRenderer buildingFuelSpriteRenderer;
-   [SerializeField]
+    [SerializeField]
     private Sprite daySprite;
     [SerializeField]
     private Sprite nightSprite;
@@ -84,6 +84,7 @@ public class DayNightCycle : MonoBehaviour
         };
 
         UpdateDayAndDebtText();
+        LoadSavedTime();
     }
 
     void Update()
@@ -93,11 +94,19 @@ public class DayNightCycle : MonoBehaviour
 
         if (timeSinceLastUpdate >= updateInterval)
         {
+            
             UpdateTime();
             timeSinceLastUpdate = 0f;
         }
     }
 
+   public void SaveTime()
+    {
+        PlayerPrefs.SetInt("SavedHour", currentHour);
+        PlayerPrefs.SetInt("SavedMinute", currentMinute);
+        PlayerPrefs.SetInt("SavedDay", currentDay);
+        PlayerPrefs.Save();
+    }
     void UpdateTime()
     {
 
@@ -132,7 +141,7 @@ public class DayNightCycle : MonoBehaviour
         timeText.text = currentHour.ToString("00") + ":" + currentMinute.ToString("00");
         if (currentHour == 23 && currentMinute == 59)
         {
-            SubtractDebtFromPlayer(); 
+            SubtractDebtFromPlayer();
         }
         timeText.text = currentHour.ToString("00") + ":" + currentMinute.ToString("00");
         if (currentHour == 7 && currentMinute == 00)
@@ -140,7 +149,7 @@ public class DayNightCycle : MonoBehaviour
             groundBg.sprite = dayGround;
             skyBg.sprite = daySky;
             NighLight.SetActive(false);
-      
+
             bgColorChanger.ChangeBackgroundColor(brownColor);
 
             buildingFuelSpriteRenderer.sprite = daySprite;
@@ -153,7 +162,7 @@ public class DayNightCycle : MonoBehaviour
             groundBg.sprite = nightGround;
             skyBg.sprite = nightSky;
             NighLight.SetActive(true);
-         
+
             bgColorChanger.ChangeBackgroundColor(darkColor);
 
             buildingFuelSpriteRenderer.sprite = nightSprite;
@@ -189,18 +198,18 @@ public class DayNightCycle : MonoBehaviour
 
             if (gameManager != null)
             {
-                int playerMoney = gameManager.GetPlayerMoney(); 
+                int playerMoney = gameManager.GetPlayerMoney();
 
                 if (playerMoney >= currentDebt)
                 {
-                    
+
                     gameManager.SubtractMoney(currentDebt);
-                    StartCoroutine(DisplayLegacyTextDay("Berhasil Membayar Hutang" ));
+                    StartCoroutine(DisplayLegacyTextDay("Berhasil Membayar Hutang"));
                     Debug.Log("Pengurangan hutang sebesar " + currentDebt + "Gc dari pemain pada jam 23:59.");
                 }
                 else
                 {
-                    StartCoroutine(DisplayLegacyTextDay("Kamu gagal Membayar Hutang T_T" ));
+                    StartCoroutine(DisplayLegacyTextDay("Kamu gagal Membayar Hutang T_T"));
                     GameManager.Instance.GameOver();
                     Debug.Log("Uang tidak cukup untuk membayar hutang hari ini.");
                     enabled = false;
@@ -218,6 +227,15 @@ public class DayNightCycle : MonoBehaviour
 
         FeedbackTextDay.enabled = false;
     }
-}
 
+    void LoadSavedTime()
+    {
+        if (PlayerPrefs.HasKey("SavedHour") && PlayerPrefs.HasKey("SavedMinute") && PlayerPrefs.HasKey("SavedDay"))
+        {
+            currentHour = PlayerPrefs.GetInt("SavedHour");
+            currentMinute = PlayerPrefs.GetInt("SavedMinute");
+            currentDay = PlayerPrefs.GetInt("SavedDay");
+        }
+    }
+}
 

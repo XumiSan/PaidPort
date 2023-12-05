@@ -28,7 +28,6 @@ public class HealthBar : MonoBehaviour
     {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        SaveHealth();
         UpdateHealthBar();
 
         if (currentHealth <= 0)
@@ -46,7 +45,6 @@ public class HealthBar : MonoBehaviour
     public void ResetHealth()
     {
         currentHealth = maxHealth;
-        SaveHealth();
         UpdateHealthBar();
         Debug.Log("Health direset ke nilai awal: " + currentHealth);
 

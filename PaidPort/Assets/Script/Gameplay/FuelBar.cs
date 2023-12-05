@@ -35,7 +35,6 @@ public class FuelBar : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentFuel -= damage;
-        SaveFuel();
         UpdateFuelBar();
 
        
@@ -65,7 +64,6 @@ public class FuelBar : MonoBehaviour
     public void ResetFuel()
     {
         currentFuel = totalFuel;
-        SaveFuel();
         UpdateFuelBar();
         Debug.Log("Health direset ke nilai awal: " + currentFuel);
         

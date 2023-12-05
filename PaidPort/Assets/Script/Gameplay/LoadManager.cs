@@ -9,7 +9,8 @@ public class LoadManager : MonoBehaviour
     public string gameplaySceneName = "Gameplay"; // Nama scene gameplay
     public Button continueButton;
 
-
+    private Vector3 lastPlayerPosition; // Menyimpan posisi terakhir pemain
+    private bool isContinued;
 
     private void Start()
     {
@@ -21,11 +22,13 @@ public class LoadManager : MonoBehaviour
         if (PlayerPrefs.HasKey("PlayerPosX") && PlayerPrefs.HasKey("PlayerPosY") && PlayerPrefs.HasKey("PlayerPosZ"))
         {
             continueButton.interactable = true;
+            isContinued = true;
         }
         else
         {
             
             continueButton.interactable = false;
+            isContinued = false;
             ColorBlock colors = continueButton.colors;
             colors.normalColor = Color.clear;
             colors.highlightedColor = Color.clear;
@@ -41,50 +44,70 @@ public class LoadManager : MonoBehaviour
         }
     }
 
-    private void LoadPosition()
+    private void ClearPlayerPrefs()
     {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+    }
+
+    public void NewGame()
+    {
+        ClearPlayerPrefs(); // Menghapus semua data PlayerPrefs saat tombol "New Game" ditekan
+        lastPlayerPosition = Vector3.zero; // Setel posisi pemain ke posisi awal, misalnya di titik nol
+        isContinued = false; // Reset status pemain telah melanjutkan permainan sebelumnya
+        LoadNewGame();
         Time.timeScale = 1f;
-        if (PlayerPrefs.HasKey("PlayerPosX") && PlayerPrefs.HasKey("PlayerPosY") && PlayerPrefs.HasKey("PlayerPosZ"))
+    }
+
+    private void LoadNewGame()
+    {
+        SceneManager.LoadScene(gameplaySceneName, LoadSceneMode.Single);
+    }
+
+    private void LoadSavedGame()
+    {
+        float posX = PlayerPrefs.GetFloat("PlayerPosX");
+        float posY = PlayerPrefs.GetFloat("PlayerPosY");
+        float posZ = PlayerPrefs.GetFloat("PlayerPosZ");
+
+        lastPlayerPosition = new Vector3(posX, posY, posZ);
+        LoadGameplayScene(lastPlayerPosition);
+    }
+
+    private void LoadGameplayScene(Vector3 playerPosition)
+    {
+        SceneManager.LoadScene(gameplaySceneName, LoadSceneMode.Single);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.name == gameplaySceneName)
         {
-            // Ambil posisi pemain dari PlayerPrefs
-            float posX = PlayerPrefs.GetFloat("PlayerPosX");
-            float posY = PlayerPrefs.GetFloat("PlayerPosY");
-            float posZ = PlayerPrefs.GetFloat("PlayerPosZ");
-
-            // Setel posisi pemain
-            Vector3 playerPosition = new Vector3(posX, posY, posZ);
-
-            // Memuat scene gameplay
-            SceneManager.LoadScene(gameplaySceneName, LoadSceneMode.Single);
-
-            // Callback untuk memastikan scene sudah dimuat
-            SceneManager.sceneLoaded += (scene, loadSceneMode) =>
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
             {
-                if (scene.name == gameplaySceneName)
-                {
-                    GameObject player = GameObject.FindGameObjectWithTag("Player");
-                    if (player != null)
-                    {
-                        player.transform.position = playerPosition;
-                        Debug.Log("Player position loaded!");
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Player GameObject not found!");
-                    }
-                }
-            };
-        }
-        else
-        {
-            Debug.LogWarning("No saved player position found!");
+                player.transform.position = lastPlayerPosition; // Atur ulang posisi pemain ke posisi terakhir
+                Debug.Log("Player position loaded!");
+            }
+            else
+            {
+                Debug.LogWarning("Player GameObject not found!");
+            }
+
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }
 
     public void LoadButton()
     {
-        CheckSavedData();
-        LoadPosition();
+        if (!isContinued)
+        {
+            lastPlayerPosition = Vector3.zero; // Jika pemain belum melanjutkan permainan sebelumnya, atur ulang posisi pemain saat tombol "Load" ditekan
+        }
+        LoadSavedGame();
+        Time.timeScale = 1f;
     }
 }
+
 

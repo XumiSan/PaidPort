@@ -7,18 +7,6 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject SettingScreeen;
-    public void PlayGame()
-    {
-        ClearPlayerPrefs();
-        SceneManager.LoadScene("Gameplay");
-        Time.timeScale = 1;
-    }
-
-    private void ClearPlayerPrefs()
-    {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
-    }
 
     public void Setting()
     {

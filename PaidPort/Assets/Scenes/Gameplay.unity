@@ -777,6 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1286349565}
+  dayNightCycle: {fileID: 1417030400}
 --- !u!4 &103661051
 Transform:
   m_ObjectHideFlags: 0
