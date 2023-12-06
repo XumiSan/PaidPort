@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class LoadManager : MonoBehaviour
 {
-    public string gameplaySceneName = "Gameplay"; // Nama scene gameplay
+    public string gameplaySceneName = "Gameplay"; 
     public Button continueButton;
 
-    private Vector3 lastPlayerPosition; // Menyimpan posisi terakhir pemain
+    private Vector3 lastPlayerPosition; 
     private bool isContinued;
 
     private void Start()
@@ -52,9 +52,9 @@ public class LoadManager : MonoBehaviour
 
     public void NewGame()
     {
-        ClearPlayerPrefs(); // Menghapus semua data PlayerPrefs saat tombol "New Game" ditekan
-        lastPlayerPosition = Vector3.zero; // Setel posisi pemain ke posisi awal, misalnya di titik nol
-        isContinued = false; // Reset status pemain telah melanjutkan permainan sebelumnya
+        ClearPlayerPrefs();
+        lastPlayerPosition = Vector3.zero;
+        isContinued = false;
         LoadNewGame();
         Time.timeScale = 1f;
     }
@@ -87,7 +87,7 @@ public class LoadManager : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                player.transform.position = lastPlayerPosition; // Atur ulang posisi pemain ke posisi terakhir
+                player.transform.position = lastPlayerPosition;
                 Debug.Log("Player position loaded!");
             }
             else
@@ -103,7 +103,7 @@ public class LoadManager : MonoBehaviour
     {
         if (!isContinued)
         {
-            lastPlayerPosition = Vector3.zero; // Jika pemain belum melanjutkan permainan sebelumnya, atur ulang posisi pemain saat tombol "Load" ditekan
+            lastPlayerPosition = Vector3.zero; 
         }
         LoadSavedGame();
         Time.timeScale = 1f;

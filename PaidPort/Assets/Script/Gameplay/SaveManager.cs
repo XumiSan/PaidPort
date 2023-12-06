@@ -8,6 +8,7 @@ public class SaveManager : MonoBehaviour
     private DayNightCycle dayNightCycle;
     private HealthBar healthBar;
     private FuelBar fuelBar;
+    private GameManager gameManager;
 
     void Start()
     {
@@ -15,6 +16,7 @@ public class SaveManager : MonoBehaviour
         dayNightCycle = FindObjectOfType<DayNightCycle>();
         healthBar = FindObjectOfType<HealthBar>();
         fuelBar = FindObjectOfType<FuelBar>();
+        gameManager = GameManager.Instance;
     }
 
         private void SavePosition()
@@ -51,7 +53,7 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Fuel bar tidak ditemukan");
+            Debug.LogError("Health tidak ditemukan");
         }
     }
 
@@ -66,13 +68,24 @@ public class SaveManager : MonoBehaviour
             Debug.LogError("Fuel bar tidak ditemukan");
         }
     }
-
-    public void SaveButton()
+    private void saveMoney()
+    {
+        if (gameManager != null)
+        {
+            gameManager.SaveMoney(gameManager.GetPlayerMoney());
+        }
+        else
+        {
+            Debug.LogError("GameManager tidak ditemukan.");
+        }
+    }
+        public void SaveButton()
     {
         SavePosition();
         saveTime();
         saveHealth();
         saveFuel();
+        saveMoney();
     }
 }
 

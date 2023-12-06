@@ -164,7 +164,6 @@ public class GameManager : MonoBehaviour
     public void AddMoney(int amount)
     {
         money += amount;
-        SaveMoney(money);
         UpdateMoneyText();
 
         Debug.Log("Pemain memiliki sekarang: " + money + " uang.");
@@ -173,7 +172,6 @@ public class GameManager : MonoBehaviour
     public void SubtractMoney(int amount)
     {
         money -= amount;
-        SaveMoney(money);
         UpdateMoneyText();
         Debug.Log("Pemain memiliki sekarang: " + money + " uang.");
     }
