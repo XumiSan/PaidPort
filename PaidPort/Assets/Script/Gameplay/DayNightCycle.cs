@@ -144,8 +144,8 @@ public class DayNightCycle : MonoBehaviour
             SubtractDebtFromPlayer();
         }
         timeText.text = currentHour.ToString("00") + ":" + currentMinute.ToString("00");
-        if (currentHour == 7 && currentMinute == 00)
-        {
+        if ((currentHour >= 7 && currentMinute >= 0) && (currentHour <= 17 && currentMinute <= 59))
+            {
             groundBg.sprite = dayGround;
             skyBg.sprite = daySky;
             NighLight.SetActive(false);
@@ -157,7 +157,7 @@ public class DayNightCycle : MonoBehaviour
 
         }
         timeText.text = currentHour.ToString("00") + ":" + currentMinute.ToString("00");
-        if (currentHour == 18 && currentMinute == 00)
+        if ((currentHour >= 7 && currentMinute >= 0) && (currentHour <= 6 && currentMinute <= 59))
         {
             groundBg.sprite = nightGround;
             skyBg.sprite = nightSky;

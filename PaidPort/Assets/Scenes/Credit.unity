@@ -211,6 +211,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5186644540769123538, guid: e70c0373b84c3f040a9193c04fc6d938, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8930663411378516728, guid: e70c0373b84c3f040a9193c04fc6d938, type: 3}
       propertyPath: m_Name
       value: CreditPopUp1
@@ -220,7 +224,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9024136457489100852, guid: e70c0373b84c3f040a9193c04fc6d938, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70c0373b84c3f040a9193c04fc6d938, type: 3}
