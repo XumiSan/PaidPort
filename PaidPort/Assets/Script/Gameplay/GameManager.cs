@@ -44,11 +44,8 @@ public class GameManager : MonoBehaviour
         }
 
         inventoryCanvas.gameObject.SetActive(false);
-
-        inventory.Add("Bronze", 0);
-        inventory.Add("Silver", 0);
-        inventory.Add("Gold", 0);
-        inventory.Add("Diamond", 0);
+        LoadInventory();
+        
     }
 
     private void Start()
@@ -74,6 +71,34 @@ public class GameManager : MonoBehaviour
         if (inventoryCanvas.gameObject.activeSelf && !Input.GetKey(KeyCode.I) && Input.anyKeyDown)
         {
             inventoryCanvas.gameObject.SetActive(false);
+        }
+    }
+
+    public void SaveInventory()
+    {
+        foreach (var item in inventory)
+        {
+            string prefsKey = "Inventory_" + item.Key;
+            PlayerPrefs.SetInt(prefsKey, item.Value);
+        }
+
+        
+        PlayerPrefs.Save();
+    }
+
+    public void LoadInventory()
+    {
+        foreach (string itemName in new List<string> { "Bronze", "Silver", "Gold", "Diamond" })
+        {
+            string prefsKey = "Inventory_" + itemName;
+            if (PlayerPrefs.HasKey(prefsKey))
+            {
+                inventory[itemName] = PlayerPrefs.GetInt(prefsKey);
+            }
+            else
+            {
+                inventory[itemName] = 0;
+            }
         }
     }
 

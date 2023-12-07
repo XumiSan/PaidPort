@@ -79,13 +79,26 @@ public class SaveManager : MonoBehaviour
             Debug.LogError("GameManager tidak ditemukan.");
         }
     }
-        public void SaveButton()
+
+    private void saveInventory()
+    {
+        if (gameManager != null)
+        {
+            gameManager.SaveInventory();
+        }
+        else
+        {
+            Debug.LogError("GameManager tidak ditemukan.");
+        }
+    }
+    public void SaveButton()
     {
         SavePosition();
         saveTime();
         saveHealth();
         saveFuel();
         saveMoney();
+        saveInventory();
     }
 }
 
