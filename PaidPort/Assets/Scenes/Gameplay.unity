@@ -777,7 +777,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1286349565}
-  dayNightCycle: {fileID: 1417030400}
 --- !u!4 &103661051
 Transform:
   m_ObjectHideFlags: 0
@@ -5321,7 +5320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.24313726}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.11764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10753,7 +10752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.61960787, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12988,7 +12987,7 @@ MonoBehaviour:
   groundBg: {fileID: 1313107004}
   skyBg: {fileID: 1019861778}
   dayGround: {fileID: 21300000, guid: 20158e532f5a07f4e8ed853789701bd7, type: 3}
-  daySky: {fileID: 21300000, guid: 17415030b93a8a24e958a299ae1b687e, type: 3}
+  daySky: {fileID: 21300000, guid: 881a20a1c7af4174e9dd8caf7e300470, type: 3}
   nightGround: {fileID: 21300000, guid: 2e1bf855c321c1d4abad7922b3390832, type: 3}
   nightSky: {fileID: 21300000, guid: 28edb52235e6a164bb40c9f749aa0b82, type: 3}
   NighLight: {fileID: 114612424}
@@ -18706,7 +18705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.4141414, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.6328746, b: 0.37169808, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
