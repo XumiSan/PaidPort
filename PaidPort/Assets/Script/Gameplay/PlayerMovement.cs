@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     private bool hasReceivedDamage = false;
 
     [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
     private Collider2D playerCollider;
     public float damagePerHit = 10f;
     private float lastDamageTime = 0f;
@@ -68,12 +71,13 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxis("Vertical");
         float x = Input.GetAxis("Horizontal");
         Vector2 direction = new Vector2(x, 0);
+        animator.SetFloat("Speed", Mathf.Abs(movement.x));
 
         if (moveDirection.magnitude == 0)
         {
-            // Anda dapat mengatur nilai default di sini jika Anda ingin pemain berhenti sepenuhnya
+            
             moveDirection = Vector2.zero;
-            // Atau Anda dapat mempertahankan arah pergerakan sebelumnya
+            
         }
 
         //Mendeklarasi untuk membalik player
@@ -152,13 +156,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void DestroyGround()
     {
-        // Periksa jika ada tanah di depan pemain
+       
         Vector2 playerPosition = playerCollider.bounds.center;
         bool isGrounded = IsGrounded();
 
         if (Input.GetKey(KeyCode.DownArrow) && isGrounded)
         {
-            // Periksa jika ada tanah di bawah pemain
+           
             RaycastHit2D hit = Physics2D.Raycast(playerPosition, Vector2.down, playerCollider.bounds.extents.y * 2, groundLayer);
 
             if (hit.collider != null)
@@ -180,12 +184,12 @@ public class PlayerMovement : MonoBehaviour
 
     void DamageGround(Collider2D groundCollider)
     {
-        // Memeriksa apakah objek yang dihancurkan memiliki komponen "GroundHealth" 
+       
         GroundHealth groundHealth = groundCollider.GetComponent<GroundHealth>();
 
         if (groundHealth != null && Time.time - lastDamageTime >= 1f)
         {
-            // Hancurkan ground dengan jumlah damage yang telah ditentukan
+            
             groundHealth.TakeDamage(damagePerHit);
             lastDamageTime = Time.time;
         }
@@ -214,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
     }
     bool IsGrounded()
     {
-        // Pemeriksaan apakah pemain menapak di atas ground
+        
         RaycastHit2D hit = Physics2D.Raycast(playerCollider.bounds.center, Vector2.down, playerCollider.bounds.extents.y + 0.1f, groundLayer);
         return hit.collider != null;
     }

@@ -11733,6 +11733,7 @@ GameObject:
   - component: {fileID: 1286349562}
   - component: {fileID: 1286349566}
   - component: {fileID: 1286349567}
+  - component: {fileID: 1286349568}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11899,6 +11900,7 @@ MonoBehaviour:
   gravityDown: 20
   gravityUp: 5
   healthBar: {fileID: 64471348}
+  animator: {fileID: 1286349568}
   playerCollider: {fileID: 1286349567}
   damagePerHit: 10
   groundLayer:
@@ -11949,6 +11951,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7253008, y: 0.7527435}
   m_EdgeRadius: 0
+--- !u!95 &1286349568
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286349561}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6c72f70bec68ac4daff5aa5c4c9bad6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1286449547
 GameObject:
   m_ObjectHideFlags: 0
