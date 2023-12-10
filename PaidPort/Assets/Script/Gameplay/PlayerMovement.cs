@@ -107,13 +107,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded())
         {
-            
             isFalling = false;
+            animator.SetBool("IsFly", false);
         }
         else if (movement.y <= 0 && !isFalling)
         {
             rb.gravityScale = 20f;
             isFalling = true;
+            animator.SetBool("IsFly", false);
         }
 
         if (isFalling && rb.gravityScale < 35f)
@@ -126,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
             rb.gravityScale = gravityUp;
             isFalling = false;
             hasReceivedDamage = false;
+            animator.SetBool("IsFly", true);
         }
         if (IsGrounded() && rb.gravityScale > 30f && !hasReceivedDamage)
         {
@@ -138,6 +140,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = gravityDown;
             hasReceivedDamage = false;
+            
         }
     }
    
@@ -221,6 +224,7 @@ public class PlayerMovement : MonoBehaviour
         
         RaycastHit2D hit = Physics2D.Raycast(playerCollider.bounds.center, Vector2.down, playerCollider.bounds.extents.y + 0.1f, groundLayer);
         return hit.collider != null;
+
     }
 
 }
