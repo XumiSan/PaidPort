@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private Transform playerTransform;
     [SerializeField]
     private LayerMask groundLayer;
-   
+
 
 
     Vector2 movement;
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         DestroyGround();
-    
+
     }
     private void FixedUpdate()
     {
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         HandleMovement();
         HandleGravity();
-       
+
     }
     private void Movement()
     {
@@ -73,11 +73,12 @@ public class PlayerMovement : MonoBehaviour
         Vector2 direction = new Vector2(x, 0);
         animator.SetFloat("Speed", Mathf.Abs(movement.x));
 
+
         if (moveDirection.magnitude == 0)
         {
-            
+
             moveDirection = Vector2.zero;
-            
+
         }
 
         //Mendeklarasi untuk membalik player
@@ -132,18 +133,18 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded() && rb.gravityScale > 30f && !hasReceivedDamage)
         {
             FallDamage();
-            
+
         }
 
-        
+
         if (IsGrounded() && (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)))
         {
             rb.gravityScale = gravityDown;
             hasReceivedDamage = false;
-            
+
         }
     }
-   
+
     void FallDamage()
     {
         if (healthBar != null)
@@ -159,21 +160,28 @@ public class PlayerMovement : MonoBehaviour
     }
     void DestroyGround()
     {
-       
+
         Vector2 playerPosition = playerCollider.bounds.center;
         bool isGrounded = IsGrounded();
 
         if (Input.GetKey(KeyCode.DownArrow) && isGrounded)
         {
-           
+
             RaycastHit2D hit = Physics2D.Raycast(playerPosition, Vector2.down, playerCollider.bounds.extents.y * 2, groundLayer);
 
             if (hit.collider != null)
             {
                 DamageGround(hit.collider);
+
+                animator.SetBool("IsDownDamage", true);
             }
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else
+        {
+            animator.SetBool("IsDownDamage", false);
+        }
+
+         if (Input.GetKey(KeyCode.RightArrow))
         {
             MoveAndDamage(Vector2.right, isGrounded);
         }
@@ -209,15 +217,19 @@ public class PlayerMovement : MonoBehaviour
             if (hit.collider != null)
             {
                 DamageGround(hit.collider);
+
+                
+                animator.SetBool("IsMoveDamage", true);
             }
 
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
             {
                 lastDamageTime = Time.time;
+
+                animator.SetBool("IsMoveDamage", false);
             }
             playerCollider.transform.Translate(movement * Time.deltaTime);
         }
-
     }
     bool IsGrounded()
     {
