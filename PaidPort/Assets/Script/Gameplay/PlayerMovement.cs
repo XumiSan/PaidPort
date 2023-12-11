@@ -229,7 +229,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            animator.SetBool("IsMoveDamage", false);
+            //animator.SetBool("IsMoveDamage", false);
         }
     }
     
