@@ -24,7 +24,7 @@ public class DayNightCycle : MonoBehaviour
     private int currentDay = 1;
     private string[] dayNames;
     private string[] dailyDebts;
-    private float updateInterval = 0.5f;
+    private float updateInterval = -5f;
     private float timeSinceLastUpdate = 0f;
 
     [SerializeField]
@@ -36,13 +36,19 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField]
     private SpriteRenderer skyBg;
     [SerializeField]
+    private SpriteRenderer layer3;
+    [SerializeField]
     private Sprite dayGround;
     [SerializeField]
     private Sprite daySky;
     [SerializeField]
+    private Sprite cloudlayer3;
+    [SerializeField]
     private Sprite nightGround;
     [SerializeField]
     private Sprite nightSky;
+    [SerializeField]
+    private Sprite starlayer3;
 
 
     [SerializeField]
@@ -52,11 +58,31 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField]
     private SpriteRenderer buildingFuelSpriteRenderer;
     [SerializeField]
-    private Sprite daySprite;
+    private Sprite fueldaySprite;
     [SerializeField]
-    private Sprite nightSprite;
+    private Sprite fuelnightSprite;
     [SerializeField]
-    private GameObject glow;
+    private GameObject fuelGlow;
+
+    //Garage Building
+    [SerializeField]
+    private SpriteRenderer buildingGarageSpriteRenderer;
+    [SerializeField]
+    private Sprite garagedaySprite;
+    [SerializeField]
+    private Sprite garagenightSprite;
+    [SerializeField]
+    private GameObject garageGlow;
+
+    //Cargo Building
+    [SerializeField]
+    private SpriteRenderer buildingCargoSpriteRenderer;
+    [SerializeField]
+    private Sprite cargodaySprite;
+    [SerializeField]
+    private Sprite cargonightSprite;
+    [SerializeField]
+    private GameObject cargoGlow;
 
     void Start()
     {
@@ -143,30 +169,45 @@ public class DayNightCycle : MonoBehaviour
         {
             SubtractDebtFromPlayer();
         }
-        timeText.text = currentHour.ToString("00") + ":" + currentMinute.ToString("00");
-        if ((currentHour >= 7 && currentMinute >= 0) && (currentHour <= 17 && currentMinute <= 59))
-            {
-            groundBg.sprite = dayGround;
-            skyBg.sprite = daySky;
-            NighLight.SetActive(false);
-
-            bgColorChanger.ChangeBackgroundColor(brownColor);
-
-            buildingFuelSpriteRenderer.sprite = daySprite;
-            glow.SetActive(false);
-
-        }
-        timeText.text = currentHour.ToString("00") + ":" + currentMinute.ToString("00");
-        if ((currentHour >= 7 && currentMinute >= 0) && (currentHour <= 6 && currentMinute <= 59))
+        if ((currentHour >= 18 && currentHour <= 23) || (currentHour >= 0 && currentHour <= 6))
         {
+            // Kode untuk mode malam
             groundBg.sprite = nightGround;
             skyBg.sprite = nightSky;
+            layer3.sprite = starlayer3;
             NighLight.SetActive(true);
 
             bgColorChanger.ChangeBackgroundColor(darkColor);
 
-            buildingFuelSpriteRenderer.sprite = nightSprite;
-            glow.SetActive(true);
+            //fuel building
+            buildingFuelSpriteRenderer.sprite = fuelnightSprite;
+            fuelGlow.SetActive(true);
+            //garage building
+            buildingGarageSpriteRenderer.sprite = garagenightSprite;
+            garageGlow.SetActive(true);
+            //cargo building
+            buildingCargoSpriteRenderer.sprite = cargonightSprite;
+            cargoGlow.SetActive(true);
+        }
+        else
+        {
+            // Kode untuk mode siang
+            groundBg.sprite = dayGround;
+            skyBg.sprite = daySky;
+            layer3.sprite = cloudlayer3;
+            NighLight.SetActive(false);
+
+            bgColorChanger.ChangeBackgroundColor(brownColor);
+
+            //fuel building
+            buildingFuelSpriteRenderer.sprite = fueldaySprite;
+            fuelGlow.SetActive(false);
+            //garage building
+            buildingGarageSpriteRenderer.sprite = garagedaySprite;
+            garageGlow.SetActive(false);
+            //cargo building
+            buildingCargoSpriteRenderer.sprite = cargodaySprite;
+            cargoGlow.SetActive(false);
         }
     }
 
