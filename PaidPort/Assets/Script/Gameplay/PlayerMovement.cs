@@ -217,20 +217,22 @@ public class PlayerMovement : MonoBehaviour
             if (hit.collider != null)
             {
                 DamageGround(hit.collider);
-
-                
                 animator.SetBool("IsMoveDamage", true);
             }
 
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
             {
                 lastDamageTime = Time.time;
-
                 animator.SetBool("IsMoveDamage", false);
             }
             playerCollider.transform.Translate(movement * Time.deltaTime);
         }
+        else
+        {
+            animator.SetBool("IsMoveDamage", false);
+        }
     }
+    
     bool IsGrounded()
     {
         
