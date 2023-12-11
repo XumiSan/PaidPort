@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     private SpriteRenderer spriteRenderer;
 
-
+    public GameObject lastTarget;
 
     private Transform playerTransform;
     [SerializeField]
@@ -52,6 +52,12 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        if (lastTarget == null)
+        {
+            animator.SetBool("IsMoveDamage", false);
+            Debug.Log("Test");
+        }
+       
         DestroyGround();
 
     }
@@ -197,7 +203,7 @@ public class PlayerMovement : MonoBehaviour
     {
        
         GroundHealth groundHealth = groundCollider.GetComponent<GroundHealth>();
-
+        lastTarget = groundCollider.gameObject; 
         if (groundHealth != null && Time.time - lastDamageTime >= 1f)
         {
             
@@ -223,14 +229,12 @@ public class PlayerMovement : MonoBehaviour
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
             {
                 lastDamageTime = Time.time;
-                animator.SetBool("IsMoveDamage", false);
+                //animator.SetBool("IsMoveDamage", false);
             }
             playerCollider.transform.Translate(movement * Time.deltaTime);
+
         }
-        else
-        {
-            //animator.SetBool("IsMoveDamage", false);
-        }
+       
     }
     
     bool IsGrounded()

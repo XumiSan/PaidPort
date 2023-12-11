@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
 public class ProseduralMap : MonoBehaviour
 {
+
+    public static ProseduralMap instance; 
+
     public Transform groundPrefab;
 
     public Transform bronzePrefab;
@@ -39,13 +42,16 @@ public class ProseduralMap : MonoBehaviour
 
 
     public GroundState state1;
+    public GroundState destroyed;
 
     private void Awake()
     {
+       
     }
 
     void Start()
     {
+        instance = this;
 
         GenerateInitialGround();
     }
@@ -268,8 +274,11 @@ public class ProseduralMap : MonoBehaviour
     {
         string json = PlayerPrefs.GetString("mapsave");
         string json1 = PlayerPrefs.GetString("mapsave1");
+        string json2 = PlayerPrefs.GetString("destroyed");
+
         state = JsonUtility.FromJson<GroundState>(json);
         state1 = JsonUtility.FromJson<GroundState>(json1);
+        destroyed = JsonUtility.FromJson<GroundState>(json2);
 
         int stateCount = state.data.Count;
 
@@ -300,6 +309,22 @@ public class ProseduralMap : MonoBehaviour
                     print("Incorrect intelligence level.");
                     break;
             }
+           
         }
+        for (int j = 0; j < destroyed.data.Count; j++)
+        {
+            GameObject go = groundContainer.GetChild(destroyed.data[j]).gameObject;
+            go.SetActive(false);
+        }
+    }
+    public void saveDestroy()
+    {
+        string json2 = JsonUtility.ToJson(destroyed);
+        PlayerPrefs.SetString("destroyed", json2);
+
+    }
+    public void AddDestroy(int index)
+    {
+        destroyed.data.Add(index);
     }
 }

@@ -27,15 +27,24 @@ public class GroundHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        
+
         currentHealth -= damage;
         lastDamageTime = Time.time;
 
-       
+
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            AddToList();
+            gameObject.SetActive(false);
         }
+    }
+    private void AddToList()
+    {
+        ProseduralMap map = FindObjectOfType<ProseduralMap>();
+        int index = transform.GetSiblingIndex();
+        map.AddDestroy(index);
+        map.saveDestroy();
     }
 }
 
