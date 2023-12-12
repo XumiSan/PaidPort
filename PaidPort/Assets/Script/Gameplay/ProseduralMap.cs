@@ -35,7 +35,7 @@ public class ProseduralMap : MonoBehaviour
 
     public Transform groundContainer;
 
-    public bool isLoad;
+    
 
 
     public GroundState state;
@@ -46,13 +46,16 @@ public class ProseduralMap : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
        
     }
 
     void Start()
     {
-        instance = this;
-
         GenerateInitialGround();
     }
 
@@ -108,20 +111,10 @@ public class ProseduralMap : MonoBehaviour
             {
                 if (randomValue <= bronzeChance)
                 {
-                    if (isLoad)
-                    {
-                        Transform ground = Instantiate(groundPrefab, spawnPos, Quaternion.identity, groundContainer);
-                        currentGround = ground;
-                    }
 
-                    if (!isLoad)
-                    {
-
-                        Transform ground = Instantiate(bronzePrefab, spawnPos, Quaternion.identity, groundContainer);
-                        groundType = 1;
-                        currentGround = ground;
-                    }
-
+                    Transform ground = Instantiate(bronzePrefab, spawnPos, Quaternion.identity, groundContainer);
+                    groundType = 1;
+                    currentGround = ground;
                 }
                 else
                 {
@@ -133,22 +126,9 @@ public class ProseduralMap : MonoBehaviour
             {
                 if (randomValue <= silverChance)
                 {
-
-
-
-                    if (isLoad)
-                    {
-                        Transform ground = Instantiate(groundPrefab, spawnPos, Quaternion.identity, groundContainer);
-                        currentGround = ground;
-                    }
-
-                    if (!isLoad)
-                    {
-
-                        Transform ground = Instantiate(silverPrefab, spawnPos, Quaternion.identity, groundContainer);
-                        groundType = 2;
-                        currentGround = ground;
-                    }
+                    Transform ground = Instantiate(silverPrefab, spawnPos, Quaternion.identity, groundContainer);
+                    groundType = 2;
+                    currentGround = ground;
                 }
                 else
                 {
@@ -165,21 +145,9 @@ public class ProseduralMap : MonoBehaviour
             {
                 if (randomValue <= goldChance)
                 {
-                    if (isLoad)
-                    {
-                        Transform ground = Instantiate(groundPrefab, spawnPos, Quaternion.identity, groundContainer);
-                        currentGround = ground;
-                    }
-
-                    if (!isLoad)
-                    {
-
-                        Transform ground = Instantiate(goldPrefab, spawnPos, Quaternion.identity, groundContainer);
-                        groundType = 3;
-                        currentGround = ground;
-                    }
-
-
+                    Transform ground = Instantiate(goldPrefab, spawnPos, Quaternion.identity, groundContainer);
+                    groundType = 3;
+                    currentGround = ground;
                 }
                 else
                 {
@@ -197,19 +165,9 @@ public class ProseduralMap : MonoBehaviour
                 if (randomValue <= diamondChance)
                 {
 
-                    if (isLoad)
-                    {
-                        Transform ground = Instantiate(groundPrefab, spawnPos, Quaternion.identity, groundContainer);
-                        currentGround = ground;
-                    }
-
-                    if (!isLoad)
-                    {
-
-                        Transform ground = Instantiate(diamondPrefab, spawnPos, Quaternion.identity, groundContainer);
-                        groundType = 4;
-                        currentGround = ground;
-                    }
+                    Transform ground = Instantiate(diamondPrefab, spawnPos, Quaternion.identity, groundContainer);
+                    groundType = 4;
+                    currentGround = ground;
                 }
 
                 else
@@ -244,13 +202,6 @@ public class ProseduralMap : MonoBehaviour
         Debug.Log(childCount);
         if (childCount == 8096)
         {
-            if (isLoad)
-            {
-                LoadMap();
-
-            }
-
-            else
             {
                 SaveMap();
             }
@@ -270,7 +221,7 @@ public class ProseduralMap : MonoBehaviour
         PlayerPrefs.SetString("mapsave", json);
         PlayerPrefs.SetString("mapsave1", json1);
     }
-    private void LoadMap()
+    public void LoadMap()
     {
         string json = PlayerPrefs.GetString("mapsave");
         string json1 = PlayerPrefs.GetString("mapsave1");

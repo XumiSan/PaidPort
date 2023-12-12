@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class LoadManager : MonoBehaviour
 {
-    public string gameplaySceneName = "Gameplay"; 
+    public string gameplaySceneName = "Gameplay";
     public Button continueButton;
 
-    private Vector3 lastPlayerPosition; 
+    private Vector3 lastPlayerPosition;
     private bool isContinued;
 
     private void Start()
@@ -18,7 +18,7 @@ public class LoadManager : MonoBehaviour
     }
     private void CheckSavedData()
     {
-       
+
         if (PlayerPrefs.HasKey("PlayerPosX") && PlayerPrefs.HasKey("PlayerPosY") && PlayerPrefs.HasKey("PlayerPosZ"))
         {
             continueButton.interactable = true;
@@ -26,7 +26,7 @@ public class LoadManager : MonoBehaviour
         }
         else
         {
-            
+
             continueButton.interactable = false;
             isContinued = false;
             ColorBlock colors = continueButton.colors;
@@ -38,7 +38,7 @@ public class LoadManager : MonoBehaviour
 
             Text buttonText = continueButton.GetComponentInChildren<Text>();
             buttonText.color = Color.gray;
-           
+
 
 
         }
@@ -72,6 +72,7 @@ public class LoadManager : MonoBehaviour
 
         lastPlayerPosition = new Vector3(posX, posY, posZ);
         LoadGameplayScene(lastPlayerPosition);
+
     }
 
     private void LoadGameplayScene(Vector3 playerPosition)
@@ -99,6 +100,20 @@ public class LoadManager : MonoBehaviour
         }
     }
 
+    public void loadprosedural()
+    {
+
+        if (ProseduralMap.instance != null)
+        {
+           
+            ProseduralMap.instance.LoadMap();
+        }
+        else
+        {
+            Debug.LogWarning("ProceduralMap instance not found!");
+        }
+    }
+
     public void LoadButton()
     {
         if (!isContinued)
@@ -106,6 +121,7 @@ public class LoadManager : MonoBehaviour
             lastPlayerPosition = Vector3.zero; 
         }
         LoadSavedGame();
+        loadprosedural();
         Time.timeScale = 1f;
     }
 }

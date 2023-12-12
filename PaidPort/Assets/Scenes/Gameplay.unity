@@ -10663,10 +10663,11 @@ MonoBehaviour:
   groundHeight: 2
   maxDepth: 500
   groundContainer: {fileID: 1922217023}
-  isLoad: 0
   state:
     data: 
   state1:
+    data: 
+  destroyed:
     data: 
 --- !u!1 &1124951472
 GameObject:
@@ -12404,6 +12405,7 @@ MonoBehaviour:
   animator: {fileID: 1286349568}
   playerCollider: {fileID: 1286349567}
   damagePerHit: 10
+  lastTarget: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
