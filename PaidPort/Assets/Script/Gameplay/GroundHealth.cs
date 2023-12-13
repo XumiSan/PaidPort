@@ -34,17 +34,17 @@ public class GroundHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            //Destroy(gameObject);
-            AddToList();
-            gameObject.SetActive(false);
+            Destroy(gameObject);
+            //AddToList();
+            //gameObject.SetActive(false);
         }
     }
-    private void AddToList()
-    {
-        ProseduralMap map = FindObjectOfType<ProseduralMap>();
-        int index = transform.GetSiblingIndex();
-        map.AddDestroy(index);
-        map.saveDestroy();
-    }
+    //private void AddToList()
+    //{
+        //ProseduralMap map = FindObjectOfType<ProseduralMap>();
+        //int index = transform.GetSiblingIndex();
+        //map.AddDestroy(index);
+        //map.saveDestroy();
+    //}
 }
 

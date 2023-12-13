@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<string, int> inventory = new Dictionary<string, int>();
     public int maxLimit = 10;
     public int totalItems = 0;
-    private int money = 10000;
+    private int money = 500;
     [SerializeField]
     private Text FeedbackTextItem;
     [SerializeField]
@@ -166,7 +166,6 @@ public class GameManager : MonoBehaviour
         if (itemsSold)
         {
             money += totalValue;
-            SaveMoney(money);
             UpdateMoneyText();
             StartCoroutine(DisplayLegacyTextSellItem("Terjual dengan harga: " + totalValue + "Gc"));
             Debug.Log("Sold all items for: " + totalValue + " money.");
