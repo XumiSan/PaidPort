@@ -149,10 +149,11 @@ public class DayNightCycle : MonoBehaviour
                 currentDay++;
 
 
-                if (currentDay > 7)
+                if (currentDay > 3)
                 {
                     currentDay = 1;
                     Time.timeScale = 0;
+                    GameManager.Instance.End();
                     Debug.Log("Siklus hari telah selesai.");
                     enabled = false;
                     return;

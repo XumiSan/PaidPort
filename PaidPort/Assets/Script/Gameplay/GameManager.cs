@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject GameOverScreen;
     public GameObject GameScreen;
+
+    public GameObject EndScreen;
 
     private bool isInventoryActive = false;
 
@@ -71,6 +74,11 @@ public class GameManager : MonoBehaviour
         if (inventoryCanvas.gameObject.activeSelf && !Input.GetKey(KeyCode.I) && Input.anyKeyDown)
         {
             inventoryCanvas.gameObject.SetActive(false);
+        }
+
+        if (EndScreen.activeSelf && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Credit");
         }
     }
 
@@ -283,6 +291,12 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         GameOverScreen.SetActive (true);
+        GameScreen.SetActive (false);
+    }
+
+    public void End()
+    {
+        EndScreen.SetActive (true);
         GameScreen.SetActive (false);
     }
 }
