@@ -14770,7 +14770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CargoCanvas: {fileID: 110336999}
   CargoScreen: {fileID: 1286449547}
-  GameScreen: {fileID: 0}
+  GameScreen: {fileID: 262360890}
 --- !u!1 &1513484217 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8890442244932326131, guid: 40f3d52611fffaf47ac1e57fc6109a8a, type: 3}
