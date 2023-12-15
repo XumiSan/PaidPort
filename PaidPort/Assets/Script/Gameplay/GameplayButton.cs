@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameplayButton : MonoBehaviour 
 {
-    public GameObject PauseScreen;
-    public GameObject GameScreen;
+    [SerializeField]
+    private GameObject PauseScreen;
+    [SerializeField]
+    private GameObject GameScreen;
+    [SerializeField]
+    private GameObject SettingScreeen;
     public void ButtonPause()
     {
         Time.timeScale = 0f;
@@ -18,6 +22,14 @@ public class GameplayButton : MonoBehaviour
         Time.timeScale = 1f;
         PauseScreen.SetActive(false);
         GameScreen.SetActive(true);
+    }
+    public void Setting()
+    {
+        SettingScreeen.SetActive(true);
+    }
+    public void ExitSetting()
+    {
+        SettingScreeen.SetActive(false);
     }
     private void ClearPlayerPrefs()
     {

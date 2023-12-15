@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LoadManager : MonoBehaviour
 {
     public string gameplaySceneName = "Gameplay"; 
+
     public Button continueButton;
 
     private Vector3 lastPlayerPosition; 

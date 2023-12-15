@@ -7,17 +7,24 @@ using UnityEngine.UI;
 public class TextAnimator : MonoBehaviour
 
 {
-    public Text displayText;
-    public Image displayImage;
+    [SerializeField]
+    private Text displayText;
+    [SerializeField]
+    private Image displayImage;
     public string[] sentences;
-    public Sprite[] images; 
-    public float typingSpeed = 0.05f;
+    public Sprite[] images;
+    [SerializeField]
+    private float typingSpeed = 0.05f;
+
+    [SerializeField]
+    private LoadingScreen loadingScreen;
 
     private int index;
     private bool isTyping;
 
     void Start()
     {
+
         StartCoroutine(AnimateImageAndText());
     }
 
@@ -59,13 +66,13 @@ public class TextAnimator : MonoBehaviour
     }
     void LoadNextScene()
     {
-        if (!string.IsNullOrEmpty("Gameplay"))
+        if (loadingScreen != null)
         {
-            SceneManager.LoadScene("Gameplay");
+            loadingScreen.LoadLevel("Gameplay");
         }
         else
         {
-            Debug.LogWarning("Nama scene berikutnya tidak ditetapkan!");
+            Debug.LogWarning("Objek LoadingScreen belum ditetapkan di Inspector!");
         }
     }
 
