@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 18733270}
   - component: {fileID: 18733272}
   - component: {fileID: 18733271}
+  - component: {fileID: 18733273}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -193,9 +194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Akhirnya Budi memutuskan untuk merantau dan menjadi seorang penambang
-    dengan satu tujuan utama: mengejar kekayaan yang tersembunyi di dalam perut planet
-    Nibiru'
+  m_Text: 
 --- !u!222 &18733272
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -204,81 +203,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18733269}
   m_CullTransparentMesh: 1
---- !u!1 &142977186
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 142977187}
-  - component: {fileID: 142977189}
-  - component: {fileID: 142977188}
-  m_Layer: 5
-  m_Name: Budi 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &142977187
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142977186}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2086171227}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 172.8}
-  m_SizeDelta: {x: 500, y: 700}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &142977188
+--- !u!114 &18733273
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142977186}
+  m_GameObject: {fileID: 18733269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4da5baeaa3bbafe44b0746d74db45c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 86d0be3e800092d48a71fc60e61c1c2e, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &142977189
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142977186}
-  m_CullTransparentMesh: 1
+  displayText: {fileID: 18733271}
+  displayImage: {fileID: 985234137}
+  sentences:
+  - Budi adalah seorang pengangguran yang sangat malas. Dia hanya menghabiskan waktunya
+    dengan terus-menerus bermain game.
+  - Namun, suatu hari, hidupnya berubah drastis ketika ayahnya terjerat hutang dan
+    melarikan diri dari rumah. Dengan rumah mereka terancam disita, ibunya terkejut
+    dan sedih. Lalu, ibunya mencari solusi dengan mengatakan bahwa cara cepat untuk
+    mendapatkan uang adalah dengan menjadi penambang di planet Nibiru.
+  - 'Akhirnya Budi memutuskan untuk merantau dan menjadi seorang penambang dengan
+    satu tujuan utama: mengejar kekayaan yang tersembunyi di dalam perut planet Nibiru'
+  images:
+  - {fileID: 21300000, guid: d8c35eec4818d5a48a4c2e4fad2a59eb, type: 3}
+  - {fileID: 21300000, guid: 6f4693d2e3e06264d8741d0cdfdeb223, type: 3}
+  - {fileID: 21300000, guid: 15be0f2dc928cc54f9c8178491664220, type: 3}
+  typingSpeed: 0.05
 --- !u!1 &985234135
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,12 +243,12 @@ GameObject:
   - component: {fileID: 985234138}
   - component: {fileID: 985234137}
   m_Layer: 5
-  m_Name: Planet Nibiru
+  m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &985234136
 RectTransform:
   m_ObjectHideFlags: 0
@@ -336,7 +288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6f4693d2e3e06264d8741d0cdfdeb223, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8c35eec4818d5a48a4c2e4fad2a59eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -353,81 +305,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985234135}
-  m_CullTransparentMesh: 1
---- !u!1 &1580461126
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1580461127}
-  - component: {fileID: 1580461129}
-  - component: {fileID: 1580461128}
-  m_Layer: 5
-  m_Name: Budi 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1580461127
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580461126}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2086171227}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 172.8}
-  m_SizeDelta: {x: 500, y: 700}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1580461128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580461126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 64183d60aa870c9448209d0b38302250, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1580461129
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580461126}
   m_CullTransparentMesh: 1
 --- !u!1 &1719547247
 GameObject:
@@ -684,9 +561,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 18733270}
-  - {fileID: 1580461127}
   - {fileID: 985234136}
-  - {fileID: 142977187}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
