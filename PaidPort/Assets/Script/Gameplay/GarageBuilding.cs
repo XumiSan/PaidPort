@@ -121,6 +121,7 @@ public class GarageBuilding : MonoBehaviour
 
             GameManager.Instance.SubtractMoney(500);
             healthBar.ResetHealth();
+            Audioplayer.instance.PlaySFX(2);
             StartCoroutine(DisplayLegacyTextService("Health bertambah"));
             Debug.Log("Health bertambah");
 

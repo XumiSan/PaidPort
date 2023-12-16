@@ -59,11 +59,14 @@ public class Audioplayer : MonoBehaviour
         SFX.Play();
     }
 
-    public void StopSound()
+    public void StopMusic()
     {
         Music.Stop();
     }
-
+    public void ResumeMusic()
+    {
+        Music.Play();
+    }
     public void ChangeSfxVolume(float volume)
     {
         SFX.volume = volume;

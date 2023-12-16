@@ -26,7 +26,7 @@ public class LoadingScreen : MonoBehaviour
 
         operation.allowSceneActivation = false;
 
-        float loadTime = 5f; // Waktu pemuatan palsu
+        float loadTime = 5f; // fake load
         float timer = 0f;
         float targetProgress = 0.9f;
 

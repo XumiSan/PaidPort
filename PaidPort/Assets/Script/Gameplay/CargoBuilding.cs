@@ -54,6 +54,7 @@ public class CargoBuilding : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.SellAllItems();
+            Audioplayer.instance.PlaySFX(1);
         }
         else
         {

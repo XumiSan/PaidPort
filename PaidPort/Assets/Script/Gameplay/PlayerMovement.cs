@@ -155,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (healthBar != null)
         {
+            Audioplayer.instance.PlaySFX(3);
             healthBar.TakeDamage(5);
             hasReceivedDamage = true;
         }

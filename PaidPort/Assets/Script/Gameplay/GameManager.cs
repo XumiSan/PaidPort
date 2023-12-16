@@ -293,6 +293,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         GameOverScreen.SetActive (true);
         GameScreen.SetActive (false);
+        Audioplayer.instance.StopMusic();
     }
 
     public void End()

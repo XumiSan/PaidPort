@@ -19,6 +19,7 @@ public class GameplayButton : MonoBehaviour
     }
     public void Resume()
     {
+        
         Time.timeScale = 1f;
         PauseScreen.SetActive(false);
         GameScreen.SetActive(true);
