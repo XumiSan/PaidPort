@@ -128,6 +128,7 @@ public class GarageBuilding : MonoBehaviour
         }
         else
         {
+            Audioplayer.instance.PlaySFX(7);
             StartCoroutine(DisplayLegacyTextService("Uang tidak cukup"));
             Debug.Log("Uang tidak cukup");
         }
@@ -156,6 +157,7 @@ public class GarageBuilding : MonoBehaviour
             }
             else
             {
+                Audioplayer.instance.PlaySFX(7);
                 Debug.Log("Uang tidak cukup untuk upgrade Drill ke lvl 2");
             }
         }
@@ -181,6 +183,7 @@ public class GarageBuilding : MonoBehaviour
             }
             else
             {
+                Audioplayer.instance.PlaySFX(7);
                 Debug.Log("Uang tidak cukup untuk upgrade Drill ke level 3");
             }
         }
@@ -206,6 +209,7 @@ public class GarageBuilding : MonoBehaviour
             }
             else
             {
+                Audioplayer.instance.PlaySFX(7);
                 Debug.Log("Uang tidak cukup untuk upgrade Drill ke level 4");
             }
         }
@@ -239,6 +243,7 @@ public class GarageBuilding : MonoBehaviour
             }
             else
             {
+                Audioplayer.instance.PlaySFX(7);
                 Debug.Log("Uang tidak cukup untuk upgrade Body ke lvl 2");
             }
         }
@@ -266,6 +271,7 @@ public class GarageBuilding : MonoBehaviour
             }
             else
             {
+                Audioplayer.instance.PlaySFX(7);
                 Debug.Log("Uang tidak cukup untuk upgrade Bodoy ke level 3");
             }
         }
@@ -293,6 +299,7 @@ public class GarageBuilding : MonoBehaviour
             }
             else
             {
+                Audioplayer.instance.PlaySFX(7);
                 Debug.Log("Uang tidak cukup untuk upgrade Drill ke level 4");
             }
         }
@@ -321,6 +328,7 @@ public class GarageBuilding : MonoBehaviour
             }
             else
             {
+                Audioplayer.instance.PlaySFX(7);
                 Debug.Log("Uang tidak cukup untuk upgrade Inventory ke lvl 2");
             }
         }
@@ -346,6 +354,7 @@ public class GarageBuilding : MonoBehaviour
             }
             else
             {
+                Audioplayer.instance.PlaySFX(7);
                 Debug.Log("Uang tidak cukup untuk upgrade Inventory ke level 3");
             }
         }
@@ -371,6 +380,7 @@ public class GarageBuilding : MonoBehaviour
             }
             else
             {
+                Audioplayer.instance.PlaySFX(7);
                 Debug.Log("Uang tidak cukup untuk upgrade Inventory ke level 4");
             }
         }
@@ -401,6 +411,7 @@ public class GarageBuilding : MonoBehaviour
             }
             else
             {
+                Audioplayer.instance.PlaySFX(7);
                 Debug.Log("Uang tidak cukup untuk upgrade Fuel Tank ke lvl 2");
             }
         }
@@ -428,6 +439,7 @@ public class GarageBuilding : MonoBehaviour
             }
             else
             {
+                Audioplayer.instance.PlaySFX(7);
                 Debug.Log("Uang tidak cukup untuk upgrade Fuel Tank ke level 3");
             }
         }
@@ -455,6 +467,7 @@ public class GarageBuilding : MonoBehaviour
             }
             else
             {
+                Audioplayer.instance.PlaySFX(7);
                 Debug.Log("Uang tidak cukup untuk upgrade Drill ke level 4");
             }
         }

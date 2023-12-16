@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameplayButton : MonoBehaviour 
 {
@@ -11,6 +12,18 @@ public class GameplayButton : MonoBehaviour
     private GameObject GameScreen;
     [SerializeField]
     private GameObject SettingScreeen;
+
+    [SerializeField]
+    private Slider sfxSlider;
+
+    [SerializeField]
+    private Slider MusicSlider;
+
+    private void Awake()
+    {
+        sfxSlider.onValueChanged.AddListener(this.OnSfxChanged);
+        MusicSlider.onValueChanged.AddListener(this.OnBgmChanged);
+    }
     public void ButtonPause()
     {
         Time.timeScale = 0f;
@@ -27,6 +40,24 @@ public class GameplayButton : MonoBehaviour
     public void Setting()
     {
         SettingScreeen.SetActive(true);
+
+        if (PlayerPrefs.HasKey("bgmVol"))
+        {
+            MusicSlider.value = PlayerPrefs.GetFloat("bgmVol");
+        }
+
+        if (PlayerPrefs.HasKey("sfxVol"))
+        {
+            sfxSlider.value = PlayerPrefs.GetFloat("sfxVol");
+        }
+    }
+    private void OnSfxChanged(float value)
+    {
+        Audioplayer.instance.ChangeSfxVolume(value);
+    }
+    private void OnBgmChanged(float value)
+    {
+        Audioplayer.instance.ChangeBgmVolume(value);
     }
     public void ExitSetting()
     {

@@ -157,7 +157,7 @@ public class DayNightCycle : MonoBehaviour
                 currentDay++;
 
 
-                if (currentDay > 3)
+                if (currentDay > 1)
                 {
                     currentDay = 1;
                     Time.timeScale = 0;

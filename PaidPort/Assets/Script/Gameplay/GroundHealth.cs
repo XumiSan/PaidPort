@@ -30,6 +30,7 @@ public class GroundHealth : MonoBehaviour
 
         currentHealth -= damage;
         lastDamageTime = Time.time;
+       
 
 
         if (currentHealth <= 0)

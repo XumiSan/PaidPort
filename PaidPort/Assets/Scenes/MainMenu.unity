@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6352301a6c55d6641bfa5e678833f6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplaySceneName: Prolog
+  gameplaySceneName: Gameplay
   continueButton: {fileID: 810646090}
 --- !u!4 &395195009
 Transform:
@@ -936,6 +936,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SettingScreeen: {fileID: 240557390}
+  sfxSlider: {fileID: 1072510214}
+  MusicSlider: {fileID: 2094249394}
 --- !u!1 &804378067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1259,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1365,6 +1367,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e356944dbdf7a244fbb8ef2a89f0ed5b, type: 3}
   - {fileID: 8300000, guid: 93d1db9c5bbdd8a40a06cf24e3039d53, type: 3}
   - {fileID: 8300000, guid: 4196aa3a86ef4014bafed3f31a14f0e8, type: 3}
+  - {fileID: 8300000, guid: db366fd75e91dd54896563392c57f887, type: 3}
+  - {fileID: 8300000, guid: 93fa721629b948d419d8fbd13da9816a, type: 3}
+  - {fileID: 8300000, guid: 30ed084a856b6e24fa11b1a2780c60d6, type: 3}
+  - {fileID: 8300000, guid: ead500a92a315de4e8b09254666126a5, type: 3}
+  - {fileID: 8300000, guid: 0a14abdd1f6625349bc070eec2277e99, type: 3}
 --- !u!4 &860326332
 Transform:
   m_ObjectHideFlags: 0
@@ -1460,6 +1467,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875881468}
   m_CullTransparentMesh: 1
+--- !u!114 &1072510214 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4067765665182704754, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
+  m_PrefabInstance: {fileID: 7081483716186697992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1419471120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,6 +1844,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 860326332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2094249394 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6948480773262376335, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
+  m_PrefabInstance: {fileID: 7081483716186697992}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5978786499679197545
 PrefabInstance:
   m_ObjectHideFlags: 0

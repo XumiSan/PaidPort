@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LayerMask groundLayer;
 
+    private int isFlyHash;
+
 
 
     Vector2 movement;
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         ////Set gravitasi dari awal langsung ada
+        isFlyHash = Animator.StringToHash("IsFly");
         rb.gravityScale = gravityDown;
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalGravityDown = gravityDown;
@@ -122,20 +125,29 @@ public class PlayerMovement : MonoBehaviour
             rb.gravityScale = 20f;
             isFalling = true;
             animator.SetBool("IsFly", false);
+            Audioplayer.instance.StopSpecificSFX(4);
+            //Audioplayer.instance.stopSFX();
         }
 
         if (isFalling && rb.gravityScale < 35f)
         {
             rb.gravityScale += Time.fixedDeltaTime * 10f;
         }
-
+        bool wasFlying = animator.GetBool(isFlyHash);
         if (movement.y > 0)
         {
             rb.gravityScale = gravityUp;
             isFalling = false;
             hasReceivedDamage = false;
             animator.SetBool("IsFly", true);
+
+
+            if (!wasFlying)
+            {
+                Audioplayer.instance.PlaySFX(4);
+            }
         }
+       
         if (IsGrounded() && rb.gravityScale > 30f && !hasReceivedDamage)
         {
             FallDamage();
@@ -158,6 +170,12 @@ public class PlayerMovement : MonoBehaviour
             Audioplayer.instance.PlaySFX(3);
             healthBar.TakeDamage(5);
             hasReceivedDamage = true;
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.color = Color.red;
+                StartCoroutine(ResetSpriteColor(0.5f)); 
+            }
         }
     }
 
@@ -207,9 +225,11 @@ public class PlayerMovement : MonoBehaviour
         lastTarget = groundCollider.gameObject; 
         if (groundHealth != null && Time.time - lastDamageTime >= 1f)
         {
-            
+            Audioplayer.instance.PlaySFX(5);
+
             groundHealth.TakeDamage(damagePerHit);
             lastDamageTime = Time.time;
+            
         }
     }
 
@@ -223,6 +243,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (hit.collider != null)
             {
+                
                 DamageGround(hit.collider);
                 animator.SetBool("IsMoveDamage", true);
             }
@@ -230,7 +251,7 @@ public class PlayerMovement : MonoBehaviour
             else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
             {
                 lastDamageTime = Time.time;
-                //animator.SetBool("IsMoveDamage", false);
+               
             }
             playerCollider.transform.Translate(movement * Time.deltaTime);
 
@@ -244,6 +265,14 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(playerCollider.bounds.center, Vector2.down, playerCollider.bounds.extents.y + 0.1f, groundLayer);
         return hit.collider != null;
 
+    }
+    IEnumerator ResetSpriteColor(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = Color.white; 
+        }
     }
 
 }

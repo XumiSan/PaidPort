@@ -72,11 +72,13 @@ public class FuelStation : MonoBehaviour
             GameManager.Instance.SubtractMoney(itemCost);
             fuelBar.ResetFuel();
             StartCoroutine(DisplayLegacyText("Fuel bertambah"));
+            Audioplayer.instance.PlaySFX(6);
             Debug.Log("Fuel bertambah");
            
         }
         else
         {
+            Audioplayer.instance.PlaySFX(7);
             StartCoroutine(DisplayLegacyText("Uang tidak cukup"));
             Debug.Log("Uang tidak cukup");
         }

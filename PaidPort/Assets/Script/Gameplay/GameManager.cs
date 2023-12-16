@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<string, int> inventory = new Dictionary<string, int>();
     public int maxLimit = 10;
     public int totalItems = 0;
-    private int money = 500;
+    private int money = 5000;
     [SerializeField]
     private Text FeedbackTextItem;
     [SerializeField]
@@ -174,6 +174,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Audioplayer.instance.PlaySFX(7);
             StartCoroutine(DisplayLegacyTextSellItem("Tidak ada Material untuk dijual"));
             Debug.Log("Tidak ada Material untuk dijual.");
         }
@@ -294,10 +295,13 @@ public class GameManager : MonoBehaviour
         GameOverScreen.SetActive (true);
         GameScreen.SetActive (false);
         Audioplayer.instance.StopMusic();
+        Audioplayer.instance.PlaySFX(8);
     }
 
     public void End()
     {
+        Audioplayer.instance.StopMusic();
+        Audioplayer.instance.PlaySFX(9);
         EndScreen.SetActive (true);
         GameScreen.SetActive(false);
     }

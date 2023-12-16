@@ -67,6 +67,26 @@ public class Audioplayer : MonoBehaviour
     {
         Music.Play();
     }
+    public void stopSFX()
+    {
+        SFX.Stop();
+    }
+    public void StopSpecificSFX(int soundIndex)
+    {
+        if (soundIndex >= 0 && soundIndex < SFXTrack.Count)
+        {
+            SFX.clip = SFXTrack[soundIndex];
+            SFX.Stop();
+        }
+        else
+        {
+            Debug.LogWarning("SFX index out of range!");
+        }
+    }
+    public void ResumeSFX()
+    {
+        SFX.Play();
+    }
     public void ChangeSfxVolume(float volume)
     {
         SFX.volume = volume;

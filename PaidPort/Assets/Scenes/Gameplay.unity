@@ -18163,6 +18163,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
+--- !u!114 &1861196320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6948480773262376335, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
+  m_PrefabInstance: {fileID: 1861196319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1861196321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4067765665182704754, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
+  m_PrefabInstance: {fileID: 1861196319}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1880922122
 GameObject:
   m_ObjectHideFlags: 0
@@ -18909,6 +18931,8 @@ MonoBehaviour:
   PauseScreen: {fileID: 64016526}
   GameScreen: {fileID: 262360890}
   SettingScreeen: {fileID: 1731150515}
+  sfxSlider: {fileID: 1861196321}
+  MusicSlider: {fileID: 1861196320}
 --- !u!1 &1945272134 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5335273277348165299, guid: 8eb818ab564c4ec46980bed4d675cb0b, type: 3}
