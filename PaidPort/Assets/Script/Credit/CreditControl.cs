@@ -11,6 +11,7 @@ public class CreditControl : MonoBehaviour
     private bool isCreditScreen1Active = true;
     void Start()
     {
+        Audioplayer.instance.PlayMusic(2);
         CreditScreen1.SetActive(true);
     }
 

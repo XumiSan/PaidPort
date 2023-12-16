@@ -8,6 +8,11 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private GameObject SettingScreeen;
 
+    void Start()
+    {
+        Audioplayer.instance.PlayMusic(1);
+    }
+
     public void Setting()
     {
         SettingScreeen.SetActive(true);

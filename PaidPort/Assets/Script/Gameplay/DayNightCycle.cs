@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Security.Cryptography;
 
 public class DayNightCycle : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class DayNightCycle : MonoBehaviour
     private string[] dailyDebts;
     private float updateInterval = 0.5f;
     private float timeSinceLastUpdate = 0f;
+
+ 
 
     [SerializeField]
     private Text FeedbackTextDay;
@@ -109,6 +112,10 @@ public class DayNightCycle : MonoBehaviour
             "2500"
         };
 
+
+
+
+        
         UpdateDayAndDebtText();
         LoadSavedTime();
     }
@@ -120,19 +127,20 @@ public class DayNightCycle : MonoBehaviour
 
         if (timeSinceLastUpdate >= updateInterval)
         {
-            
             UpdateTime();
             timeSinceLastUpdate = 0f;
         }
     }
 
-   public void SaveTime()
+
+    public void SaveTime()
     {
         PlayerPrefs.SetInt("SavedHour", currentHour);
         PlayerPrefs.SetInt("SavedMinute", currentMinute);
         PlayerPrefs.SetInt("SavedDay", currentDay);
         PlayerPrefs.Save();
     }
+
     void UpdateTime()
     {
 
@@ -162,8 +170,8 @@ public class DayNightCycle : MonoBehaviour
 
                 HandleDayChange(currentDay);
             }
-        }
 
+        }
 
         timeText.text = currentHour.ToString("00") + ":" + currentMinute.ToString("00");
         if (currentHour == 23 && currentMinute == 59)
@@ -210,6 +218,7 @@ public class DayNightCycle : MonoBehaviour
             buildingCargoSpriteRenderer.sprite = cargodaySprite;
             cargoGlow.SetActive(false);
         }
+
     }
 
     void HandleDayChange(int day)

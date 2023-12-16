@@ -25,6 +25,7 @@ public class TextAnimator : MonoBehaviour
     void Start()
     {
 
+        Audioplayer.instance.PlayMusic(2);
         StartCoroutine(AnimateImageAndText());
     }
 

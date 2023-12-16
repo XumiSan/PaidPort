@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
         UpdateItemCountText("Gold");
         UpdateItemCountText("Diamond");
 
+        Audioplayer.instance.PlayMusic(0);
+
         FeedbackTextItem.enabled = false;
     }
 
@@ -296,7 +298,7 @@ public class GameManager : MonoBehaviour
     public void End()
     {
         EndScreen.SetActive (true);
-        GameScreen.SetActive (false);
+        GameScreen.SetActive(false);
     }
 }
 
