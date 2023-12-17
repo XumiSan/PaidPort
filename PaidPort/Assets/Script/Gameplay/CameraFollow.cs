@@ -16,6 +16,9 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     private float smoothSpeed;
 
+    [SerializeField]
+    private float minX, maxX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,9 @@ public class CameraFollow : MonoBehaviour
         //dynamic + smooth follow
         Vector2 vector2TargetPos = new Vector2(target.position.x, target.position.y);
         Vector2 desiredPos = vector2TargetPos + dynamicOffset;
+
+        float clampedX = Mathf.Clamp(desiredPos.x, minX, maxX);
+        desiredPos = new Vector2(clampedX, desiredPos.y);
 
         Vector2 smoothPosition = Vector2.Lerp(transform.position, desiredPos, smoothSpeed);
         transform.position = smoothPosition;

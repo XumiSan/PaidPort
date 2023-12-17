@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private Dictionary<string, int> inventory = new Dictionary<string, int>();
     public int maxLimit = 10;
     public int totalItems = 0;
-    private int money = 5000;
+    private int money = 500;
     [SerializeField]
     private Text FeedbackTextItem;
     [SerializeField]
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
         }
 
         
-        PlayerPrefs.Save();
+        //PlayerPrefs.Save();
     }
 
     public void LoadInventory()

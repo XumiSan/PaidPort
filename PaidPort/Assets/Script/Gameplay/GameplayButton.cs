@@ -26,6 +26,7 @@ public class GameplayButton : MonoBehaviour
     }
     public void ButtonPause()
     {
+        Audioplayer.instance.stopSFX();
         Time.timeScale = 0f;
         PauseScreen.SetActive(true);
         GameScreen.SetActive(false);

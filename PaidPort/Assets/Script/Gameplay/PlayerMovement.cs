@@ -83,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(movement.x));
 
 
+
         if (moveDirection.magnitude == 0)
         {
 
@@ -229,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
 
             groundHealth.TakeDamage(damagePerHit);
             lastDamageTime = Time.time;
-            
+
         }
     }
 

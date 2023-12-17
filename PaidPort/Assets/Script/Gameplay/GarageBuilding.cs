@@ -57,7 +57,7 @@ public class GarageBuilding : MonoBehaviour
 
     public void Start()
     {
-        UpgradeFuel();
+        //UpgradeFuel();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -141,6 +141,7 @@ public class GarageBuilding : MonoBehaviour
             {
                 playerMovement.damagePerHit = 20f;
                 GameManager.Instance.SubtractMoney(750);
+                Audioplayer.instance.PlaySFX(2);
 
                 if (damageButton != null)
                 {
@@ -167,6 +168,7 @@ public class GarageBuilding : MonoBehaviour
             {
                 playerMovement.damagePerHit = 30f;
                 GameManager.Instance.SubtractMoney(2000);
+                Audioplayer.instance.PlaySFX(2);
 
                 if (damageButton != null)
                 {
@@ -193,6 +195,7 @@ public class GarageBuilding : MonoBehaviour
             {
                 playerMovement.damagePerHit = 40f;
                 GameManager.Instance.SubtractMoney(5000);
+                Audioplayer.instance.PlaySFX(2);
 
                 if (damageButton != null)
                 {
@@ -225,6 +228,7 @@ public class GarageBuilding : MonoBehaviour
                 healthBar.ResetHealth();
                 healthBar.UpdateHealthBar();
                 GameManager.Instance.SubtractMoney(750);
+                Audioplayer.instance.PlaySFX(2);
                 Debug.Log("Berhasil Upgrade");
 
                 if (healthButton != null)
@@ -255,6 +259,7 @@ public class GarageBuilding : MonoBehaviour
                 healthBar.ResetHealth();
                 healthBar.UpdateHealthBar();
                 GameManager.Instance.SubtractMoney(2000);
+                Audioplayer.instance.PlaySFX(2);
 
                 if (healthButton != null)
                 {
@@ -283,6 +288,7 @@ public class GarageBuilding : MonoBehaviour
                 healthBar.ResetHealth();
                 healthBar.UpdateHealthBar();
                 GameManager.Instance.SubtractMoney(5000);
+                Audioplayer.instance.PlaySFX(2);
 
                 if (healthButton != null)
                 {
@@ -312,6 +318,7 @@ public class GarageBuilding : MonoBehaviour
             {
                 gameManager.maxLimit = 20;
                 GameManager.Instance.SubtractMoney(750);
+                Audioplayer.instance.PlaySFX(2);
 
                 if (inventoryButton != null)
                 {
@@ -338,6 +345,7 @@ public class GarageBuilding : MonoBehaviour
             {
                 gameManager.maxLimit = 30;
                 GameManager.Instance.SubtractMoney(2000);
+                Audioplayer.instance.PlaySFX(2);
 
                 if (inventoryButton != null)
                 {
@@ -364,6 +372,7 @@ public class GarageBuilding : MonoBehaviour
             {
                 gameManager.maxLimit = 40;
                 GameManager.Instance.SubtractMoney(5000);
+                Audioplayer.instance.PlaySFX(2);
 
                 if (inventoryButton != null)
                 {
@@ -395,6 +404,7 @@ public class GarageBuilding : MonoBehaviour
                 fuelBar.ResetFuel();
                 fuelBar.UpdateFuelBar();
                 GameManager.Instance.SubtractMoney(750);
+                Audioplayer.instance.PlaySFX(2);
 
                 if (fuelButton != null)
                 {
@@ -451,6 +461,7 @@ public class GarageBuilding : MonoBehaviour
                 fuelBar.ResetFuel();
                 fuelBar.UpdateFuelBar();
                 GameManager.Instance.SubtractMoney(5000);
+                Audioplayer.instance.PlaySFX(2);
 
                 if (fuelButton != null)
                 {

@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SplashControl : MonoBehaviour
 {
-    // Start is called before the first frame update
+   public AudioSource splash;
+    public AudioClip clip;
     void Start()
     {
-        
+        splash.PlayOneShot(clip);
     }
 
     void entry()

@@ -53,7 +53,7 @@ public class LoadManager : MonoBehaviour
 
     public void NewGame()
     {
-        ClearPlayerPrefs();
+        //ClearPlayerPrefs();
         lastPlayerPosition = Vector3.zero;
         isContinued = false;
         LoadNewGame();

@@ -1265,7 +1265,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 144
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1362,16 +1362,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7bea58084ba2b854d9efa8816ab14c2e, type: 3}
   - {fileID: 8300000, guid: b336edf8b8ad5bd4e9810364030ae0f7, type: 3}
   SFXTrack:
-  - {fileID: 8300000, guid: 441d3a04e503c7642babbf86a834e590, type: 3}
+  - {fileID: 8300000, guid: 2f978b1c97915b84484484fe460ef38f, type: 3}
   - {fileID: 8300000, guid: b7726204de53ff849ac7aa4829133ba0, type: 3}
   - {fileID: 8300000, guid: e356944dbdf7a244fbb8ef2a89f0ed5b, type: 3}
-  - {fileID: 8300000, guid: 93d1db9c5bbdd8a40a06cf24e3039d53, type: 3}
+  - {fileID: 8300000, guid: c436e2389aae5564b8fced392aaaf14a, type: 3}
   - {fileID: 8300000, guid: 4196aa3a86ef4014bafed3f31a14f0e8, type: 3}
   - {fileID: 8300000, guid: db366fd75e91dd54896563392c57f887, type: 3}
   - {fileID: 8300000, guid: 93fa721629b948d419d8fbd13da9816a, type: 3}
   - {fileID: 8300000, guid: 30ed084a856b6e24fa11b1a2780c60d6, type: 3}
   - {fileID: 8300000, guid: ead500a92a315de4e8b09254666126a5, type: 3}
   - {fileID: 8300000, guid: 0a14abdd1f6625349bc070eec2277e99, type: 3}
+  - {fileID: 8300000, guid: c8bf915c5d97b744b847278d26c84186, type: 3}
 --- !u!4 &860326332
 Transform:
   m_ObjectHideFlags: 0
@@ -1746,12 +1747,12 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.8
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 144
+  Priority: 125
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

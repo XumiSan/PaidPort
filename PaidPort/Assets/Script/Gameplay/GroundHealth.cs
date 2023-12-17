@@ -35,6 +35,7 @@ public class GroundHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            //Audioplayer.instance.ResumeSFX();
             Audioplayer.instance.PlaySFX(0);
 
             Destroy(gameObject);
