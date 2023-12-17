@@ -11,25 +11,33 @@ public class GameManager : MonoBehaviour
     private Dictionary<string, int> inventory = new Dictionary<string, int>();
     public int maxLimit = 10;
     public int totalItems = 0;
-    private int money = 500;
+    private int money = 5000;
     [SerializeField]
     private Text FeedbackTextItem;
     [SerializeField]
     private Text FeedbackTextSell;
-
-    public Canvas inventoryCanvas;
-    public Text maxInventory;
-    public Text bronzeCountText;
-    public Text silverCountText;
-    public Text goldCountText;
-    public Text diamondCountText;
-    public Text MoneyText;
-
-    public GameObject GameOverScreen;
-    public GameObject GameScreen;
-
-    public GameObject EndScreen;
-
+    [SerializeField]
+    private Canvas inventoryCanvas;
+    [SerializeField]
+    private Text maxInventory;
+    [SerializeField]
+    private Text bronzeCountText;
+    [SerializeField]
+    private Text silverCountText;
+    [SerializeField] 
+    private Text goldCountText;
+    [SerializeField] 
+    private Text diamondCountText;
+    [SerializeField]
+    private Text MoneyText;
+    [SerializeField]
+    private GameObject GameOverScreen;
+    [SerializeField]
+    private GameObject GameScreen;
+    [SerializeField]
+    private GameObject EndScreen;
+    [SerializeField]
+    private GameObject EndSound;
     private bool isInventoryActive = false;
 
     public List<int> groundListType;
@@ -80,6 +88,7 @@ public class GameManager : MonoBehaviour
 
         if (EndScreen.activeSelf && Input.GetKeyDown(KeyCode.Space))
         {
+            EndSound.SetActive(false);
             SceneManager.LoadScene("Credit");
         }
     }
@@ -160,7 +169,7 @@ public class GameManager : MonoBehaviour
             if (itemCount > 0)
             {
                 totalValue += itemCount * GetValueOfItem(item);
-                inventory[item] = 0;
+                inventory.Remove(item);
                 itemsSold = true;
             }
         }
@@ -301,7 +310,8 @@ public class GameManager : MonoBehaviour
     public void End()
     {
         Audioplayer.instance.StopMusic();
-        Audioplayer.instance.PlaySFX(9);
+        EndSound.SetActive(true);
+        
         EndScreen.SetActive (true);
         GameScreen.SetActive(false);
     }

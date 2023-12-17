@@ -6779,7 +6779,7 @@ GameObject:
   - component: {fileID: 738469282}
   - component: {fileID: 738469281}
   m_Layer: 0
-  m_Name: SoundMachine
+  m_Name: EndSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6795,10 +6795,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c8bf915c5d97b744b847278d26c84186, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0a14abdd1f6625349bc070eec2277e99, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
-  m_Pitch: 0.8
+  m_Volume: 1
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -18504,6 +18504,22 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7262821610207548728, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -36.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262821610207548728, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -82.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329202278712982700, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    - target: {fileID: 7329202278712982700, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 55
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19248,6 +19264,7 @@ MonoBehaviour:
   GameOverScreen: {fileID: 1840280400}
   GameScreen: {fileID: 262360890}
   EndScreen: {fileID: 1909722178}
+  EndSound: {fileID: 738469280}
   groundListType: 
   groundListTypeIndex: 
 --- !u!4 &1942042536

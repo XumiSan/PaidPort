@@ -18,9 +18,16 @@ public class MachineSound : MonoBehaviour
             //stopFootstep();
             //Audioplayer.instance.StopSpecificSFX(9);
         }
-        if(Input.GetKey(KeyCode.UpArrow))
+        if(Input.GetKeyDown(KeyCode.UpArrow))
         {
             //stopFootstep();
+            Audioplayer.instance.PlaySFX(4);
+            //Audioplayer.instance.StopSpecificSFX(9);
+        }
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            //stopFootstep();
+            Audioplayer.instance.StopSpecificSFX(4);
             //Audioplayer.instance.StopSpecificSFX(9);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))

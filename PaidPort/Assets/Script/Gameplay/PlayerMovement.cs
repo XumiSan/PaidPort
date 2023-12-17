@@ -126,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
             rb.gravityScale = 20f;
             isFalling = true;
             animator.SetBool("IsFly", false);
-            Audioplayer.instance.StopSpecificSFX(4);
+            //Audioplayer.instance.StopSpecificSFX(4);
             //Audioplayer.instance.stopSFX();
         }
 
@@ -143,10 +143,10 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsFly", true);
 
 
-            if (!wasFlying)
-            {
-                Audioplayer.instance.PlaySFX(4);
-            }
+            //if (!wasFlying)
+            //{
+               // Audioplayer.instance.PlaySFX(4);
+            //}
         }
        
         if (IsGrounded() && rb.gravityScale > 30f && !hasReceivedDamage)

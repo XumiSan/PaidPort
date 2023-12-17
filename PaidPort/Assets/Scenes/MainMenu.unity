@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6352301a6c55d6641bfa5e678833f6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplaySceneName: Gameplay
+  gameplaySceneName: Prolog
   continueButton: {fileID: 810646090}
 --- !u!4 &395195009
 Transform:
@@ -1361,6 +1361,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 635e3210d25dfd64a93700faa660cc18, type: 3}
   - {fileID: 8300000, guid: 7bea58084ba2b854d9efa8816ab14c2e, type: 3}
   - {fileID: 8300000, guid: b336edf8b8ad5bd4e9810364030ae0f7, type: 3}
+  - {fileID: 8300000, guid: 54b9b2849545a0449bbc4eeca286b9a5, type: 3}
   SFXTrack:
   - {fileID: 8300000, guid: 2f978b1c97915b84484484fe460ef38f, type: 3}
   - {fileID: 8300000, guid: b7726204de53ff849ac7aa4829133ba0, type: 3}
@@ -2017,6 +2018,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 800337741961663288, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1326988550749348261, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2151,11 +2156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7262821610207548728, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -33.3
+      value: -51.7
       objectReference: {fileID: 0}
     - target: {fileID: 7262821610207548728, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -51.7
+      value: -78.1
       objectReference: {fileID: 0}
     - target: {fileID: 7329202278712982700, guid: bfedbc41124cb614ead03a92daa29c1a, type: 3}
       propertyPath: m_FontData.m_MinSize
