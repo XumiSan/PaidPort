@@ -25,7 +25,7 @@ public class DayNightCycle : MonoBehaviour
     private int currentDay = 1;
     private string[] dayNames;
     private string[] dailyDebts;
-    private float updateInterval = 0.5f;
+    private float updateInterval = 1f;
     private float timeSinceLastUpdate = 0f;
 
  
@@ -160,7 +160,6 @@ public class DayNightCycle : MonoBehaviour
                 if (currentDay > 1)
                 {
                     currentDay = 1;
-                    Time.timeScale = 0;
                     GameManager.Instance.End();
                     Debug.Log("Siklus hari telah selesai.");
                     enabled = false;

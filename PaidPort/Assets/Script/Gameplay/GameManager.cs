@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
 
         if (EndScreen.activeSelf && Input.GetKeyDown(KeyCode.Space))
         {
+            Audioplayer.instance.stopSFX();
             EndSound.SetActive(false);
             SceneManager.LoadScene("Credit");
         }
@@ -310,7 +311,7 @@ public class GameManager : MonoBehaviour
     public void End()
     {
         Audioplayer.instance.StopMusic();
-        EndSound.SetActive(true);
+        //EndSound.SetActive(true);
         
         EndScreen.SetActive (true);
         GameScreen.SetActive(false);
