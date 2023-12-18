@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class CreditControl : MonoBehaviour
 {
     public GameObject CreditScreen1;
-    public GameObject CreditScreen2;
 
     private bool isCreditScreen1Active = true;
     void Start()
@@ -22,21 +21,9 @@ public class CreditControl : MonoBehaviour
         {
             if (CreditScreen1.activeSelf && Input.GetKeyDown(KeyCode.Space))
             {
-                CreditScreen1.SetActive(false);
-                CreditScreen2.SetActive(true);
-                isCreditScreen1Active = false;
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
                 SceneManager.LoadScene("MainMenu");
 
                 isCreditScreen1Active = true;
-
-                
-
             }
         }
     }

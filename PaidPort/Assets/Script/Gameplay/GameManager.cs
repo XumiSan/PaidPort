@@ -169,8 +169,9 @@ public class GameManager : MonoBehaviour
             int itemCount = inventory[item];
             if (itemCount > 0)
             {
+                int sellAmount = itemCount > maxLimit ? maxLimit : itemCount;
                 totalValue += itemCount * GetValueOfItem(item);
-                inventory.Remove(item);
+                inventory[item] -= sellAmount;
                 itemsSold = true;
             }
         }
