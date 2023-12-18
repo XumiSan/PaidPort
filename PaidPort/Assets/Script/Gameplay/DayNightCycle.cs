@@ -20,7 +20,7 @@ public class DayNightCycle : MonoBehaviour
     [SerializeField]
     private Color darkColor = new Color(0.6f, 0.3f, 0.1f, 1f);
 
-    private int currentHour = 0;
+    private int currentHour = 8;
     private int currentMinute = 0;
     private int currentDay = 1;
     private string[] dayNames;
@@ -157,7 +157,7 @@ public class DayNightCycle : MonoBehaviour
                 currentDay++;
 
 
-                if (currentDay > 1)
+                if (currentDay > 3)
                 {
                     currentDay = 1;
                     GameManager.Instance.End();
