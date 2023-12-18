@@ -25,7 +25,7 @@ public class DayNightCycle : MonoBehaviour
     private int currentDay = 1;
     private string[] dayNames;
     private string[] dailyDebts;
-    private float updateInterval = 1f;
+    private float updateInterval = 0.8f;
     private float timeSinceLastUpdate = 0f;
 
  
