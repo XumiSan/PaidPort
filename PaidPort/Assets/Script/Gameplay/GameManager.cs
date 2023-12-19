@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
             string prefsKey = "Inventory_" + itemName;
             if (PlayerPrefs.HasKey(prefsKey))
             {
-                inventory[itemName] = PlayerPrefs.GetInt(prefsKey);
+              inventory[itemName] = PlayerPrefs.GetInt(prefsKey);
             }
             else
             {
@@ -127,15 +127,16 @@ public class GameManager : MonoBehaviour
         if (inventory.ContainsKey(item))
         {
             int newTotal = totalItems + amount;
-            if (newTotal <= maxLimit) 
+            bool inventoryFullPreviously = totalItems >= maxLimit;
+
+            if (newTotal <= maxLimit || (inventory[item] == 0 && amount > 0) || inventoryFullPreviously)
             {
-                if (inventory[item] + amount >= 0)
+                if (newTotal >= 0)
                 {
                     totalItems = newTotal;
                     inventory[item] += amount;
                     StartCoroutine(DisplayLegacyTextAddItem("+" + amount + " " + item));
                     Debug.Log(item + " added to inventory: " + amount);
-                    
 
                     if (isInventoryActive)
                     {
@@ -182,6 +183,17 @@ public class GameManager : MonoBehaviour
             UpdateMoneyText();
             StartCoroutine(DisplayLegacyTextSellItem("Terjual dengan harga: " + totalValue + "Gc"));
             Debug.Log("Sold all items for: " + totalValue + " money.");
+
+            if (totalItems >= maxLimit)
+            {
+                totalItems = 0;
+            }
+
+            foreach (var item in itemsToSell)
+            {
+                inventory[item] = 0;
+                UpdateItemCountText(item);
+            }
         }
         else
         {

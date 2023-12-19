@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6352301a6c55d6641bfa5e678833f6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplaySceneName: Gameplay
+  gameplaySceneName: Prolog
   continueButton: {fileID: 810646090}
 --- !u!4 &395195009
 Transform:

@@ -80,17 +80,17 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    private void saveInventory()
-    {
-        if (gameManager != null)
-        {
-            gameManager.SaveInventory();
-        }
-        else
-        {
-            Debug.LogError("GameManager tidak ditemukan.");
-        }
-    }
+    //private void saveInventory()
+    //{
+        //if (gameManager != null)
+        //{
+            //gameManager.SaveInventory();
+        //}
+        //else
+        //{
+           //Debug.LogError("GameManager tidak ditemukan.");
+        //}
+    //}
     public void SaveButton()
     {
         SavePosition();
@@ -98,7 +98,7 @@ public class SaveManager : MonoBehaviour
         saveHealth();
         saveFuel();
         saveMoney();
-        saveInventory();
+        //saveInventory();
     }
 }
 
