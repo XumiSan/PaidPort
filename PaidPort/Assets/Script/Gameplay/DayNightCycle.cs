@@ -255,6 +255,7 @@ public class DayNightCycle : MonoBehaviour
 
                     gameManager.SubtractMoney(currentDebt);
                     StartCoroutine(DisplayLegacyTextDay("Berhasil Membayar Hutang"));
+                    Audioplayer.instance.PlaySFX(12);
                     Debug.Log("Pengurangan hutang sebesar " + currentDebt + "Gc dari pemain pada jam 23:59.");
                 }
                 else

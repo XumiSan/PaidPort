@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6352301a6c55d6641bfa5e678833f6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameplaySceneName: Prolog
+  gameplaySceneName: Gameplay
   continueButton: {fileID: 810646090}
 --- !u!4 &395195009
 Transform:
@@ -1363,7 +1363,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 144
+  Priority: 150
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1473,6 +1473,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0a14abdd1f6625349bc070eec2277e99, type: 3}
   - {fileID: 8300000, guid: 1dea5ed652ea2d94292dbef0de430b9c, type: 3}
   - {fileID: 8300000, guid: 05142beb8414af54898071cebbf8ac8e, type: 3}
+  - {fileID: 8300000, guid: d28a655c779f3404092307c23db57009, type: 3}
 --- !u!4 &860326332
 Transform:
   m_ObjectHideFlags: 0

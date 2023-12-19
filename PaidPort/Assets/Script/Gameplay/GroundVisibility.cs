@@ -15,7 +15,7 @@ public class GroundVisibility : MonoBehaviour
     private float visionRange = 5f;
     private float overlayRadius = 1f;
 
-    private float permanentSeenRadius = 1f;
+    private float permanentSeenRadius = 1.5f;
 
     private bool hasBeenSeen = false;
     private bool permanentSeen = false;
